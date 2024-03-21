@@ -13,6 +13,7 @@
 .sec1-para {
     font-size: 25px;
 }
+
 .section-first>.sec1-para:nth-child(2)>strong {
     color: #777cc0;
 }
