@@ -1,0 +1,110 @@
+.header-wrapper {
+    background-color: #6f8bff;
+}
+
+.site-header {
+    position: relative; /* Change from absolute to relative */
+    width: 100%;
+    z-index: 999;
+}
+
+.site-header.fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.site-header.fixed-top .navbar {
+    position: static !important;
+}
+
+.site-header .top-header {
+    background: transparent;
+    position: relative;
+    z-index: 1;
+    padding: 5px 0;
+}
+
+.site-header .top-header:after {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80%;
+    height: 100%;
+    background: #fff;
+    content: "";
+    z-index: -1;
+    border-radius: 1px 0px 0px 50px;
+    box-shadow: -5px 8px 0px -9px rgba(2, 43, 147, 0.15);
+}
+
+.site-header .top-header .top-message li {
+    color: #777777;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+    font-size: 13px;
+}
+
+.site-header .top-header .top-message li:after {
+    position: absolute;
+    right: 0;
+    height: 18px;
+    width: 1px;
+    background: #022b93;
+    content: "";
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.top-message li {
+    display: inline-block;
+    font-size: 13px;
+    padding: 0 5px;
+}
+
+@media only screen and (max-width: 1600px) {
+    .site-header .top-header:after {
+        width: 83%;
+    }   
+    .site-header .top-header .top-message li {
+        padding: 0 7px;
+    }
+    .site-header .top-header .top-message {
+        margin-right: -9px;
+        text-align-last: end;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .site-header {
+        position: static !important;
+    }   
+    .site-header .top-header .top-message {
+        text-align-last: center;
+    }
+    .site-header .top-header .top-message li:after {
+        content: inherit;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .site-header .top-header:after {
+        width: 100%;
+        border-radius: 0px;
+    }
+}
+
+@media (min-width: 992px) {
+    .site-header .top-header .top-message li {
+        text-align: right !important;
+    }
+    
+}
+@media only screen and (max-width: 769px) {
+
+.button{
+    display: none;
+}
+}
