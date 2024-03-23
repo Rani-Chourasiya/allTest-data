@@ -97,6 +97,10 @@
     .site-header .top-header .top-message li:after {
         content: inherit;
     }
+    .singleTbox{
+        margin-bottom: 5rem;
+    }
+    
 }
 
 @media (max-width: 991.98px) {
@@ -104,20 +108,84 @@
         width: 100%;
         border-radius: 0px;
     }
+    .portfolioitem {
+        padding: 50px 0 !important;
+    }
+
 }
 
 @media (min-width: 992px) {
     .site-header .top-header .top-message li {
         text-align: right !important;
     }
-    
+    .section-title, .aceSingleServices h3{
+        margin-top: 20px !important;
+    }
 }
 
 @media only screen and (max-width: 769px) {
     .button {
         display: none;
     }
+    .ace-testimonials-version2 {
+        height: 45em !important;
+    }
 }
+@media only screen and (max-width: 760px) {
+    .section-title, .aceSingleServices h3{
+        font-size: 20px !important;
+    }
+    .ace-testimonials-version2 {
+        height: 70em !important;
+    }
+}
+@media only screen and (max-width: 376px) {
+    .section-title, .aceSingleServices h3{
+        font-size: 20px !important;
+    }
+    .ace-testimonials-version2 {
+        height: 76em !important;
+    }
+}
+/* section 2 css start */
+.single-slider {
+    position: relative;
+    overflow: hidden;
+}
+.banner-img {
+    background-position: center;
+    background-image: url("../assets/img/banner-1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+}
+.banner-img-2 {
+    background-position: center;
+    background-image: url("../assets/img/banner-2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.7;
+
+}
+.banner-content{
+    padding: 7rem 0 7rem 1rem;
+    z-index: 9999;
+}
+
+.video-icon2 {
+    background: rgba(255,255,255,0.3);
+    text-align: center;
+    line-height: 100px;
+    width: 100px;
+    color: #022b93;
+    margin-inline-end: 7rem;
+}
+.playVideo{
+    border: 1px solid #022b93;
+    border-radius: 50%;
+}
+
+/* section 2 css end */
 
 /* section 3 css start */
 .ace-services {
@@ -239,7 +307,7 @@ a.aceSingleServices:hover {
 } */
 /* section 3 css end */
 
-/* section 4 css start */
+/* section 5 css start */
 .ace-history {
     padding: 100px 0;
 }
@@ -317,10 +385,10 @@ button.disabled {
 }
 
 
-/* section 4 css end */
+/* section 5 css end */
 
 
-/* section 5 css start */
+/* section 6 css start */
 .ace-portfolio {
     padding: 50px 0 100px;
 }
@@ -370,8 +438,6 @@ button.disabled {
     -ms-flex: 0 0 19%;
     flex: 0 0 19%;
     max-width: 19%;
-    /* margin-left: 2px; */
-    /* margin-right: 2px; */
     margin-bottom: 4px;
     position: relative;
     z-index: 1;
@@ -428,9 +494,9 @@ img{
     -webkit-animation: fadeInDown 400ms ease-in-out;
     animation: fadeInDown 400ms ease-in-out;
 } 
-/* section 5 css end */
+/* section 6 css end */
 
-/* section 6 css start */
+/* section 7 css start */
 .ace-testimonials-version2 {
     height: 600px;
 }
@@ -438,8 +504,8 @@ img{
     height: 600px;
 }
 .singleTbox {
-    height: 390px;
-    width: 390px;
+    /* height: 390px;
+    width: 390px; */
     padding: 15px;
     margin: auto;
     position: relative;
@@ -480,18 +546,6 @@ img{
 .singleTbox:hover:after {
     background: #6f8bff;
 }
-.singleTbox:after {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    content: "";
-    z-index: -1;
-    background: #fff;
-    -webkit-transition: all 0.24s cubic-bezier(0.445, 0.05, 0.55, 0.95);
-    transition: all 0.24s cubic-bezier(0.445, 0.05, 0.55, 0.95);
-}
 .singleTbox:hover p, .singleTbox:hover i, .singleTbox:hover h4, .singleTbox:hover h6 {
     color: #fff;
     -webkit-animation: fadeInUp 400ms ease-in-out;
@@ -503,9 +557,9 @@ img{
     -webkit-mask-size: cover;
     mask-size: cover; */
 }
-/* section 6 css end */
+/* section 7 css end */
 
-/* section 7 css start */
+/* section 8 css start */
 .ace-portfolio {
     padding: 50px 0 100px;
 }
@@ -558,4 +612,4 @@ img{
 .tech-gallery-item img{
     width: 100%;
 }
-/* section 7 css end */
+/* section 8 css end */
