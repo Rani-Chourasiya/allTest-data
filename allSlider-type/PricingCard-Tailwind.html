@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!--  -->
+    <title>UserCard Tailwind css </title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"> -->
+    <!--custom style -->
+    <style>
+.changeBg {
+  transform: translatex(78%);
+  transition: transform 0.3s;
+}
+
+.changeBg.open {
+  transform: translatex(0);
+}
+    </style>
+</head>
+
+<body>
+    <section class="">
+        <div class="min-h-screen bg-gray-200 p-5 md:grid">
+            <div class="lg:flex items-center justify-center">
+              <div class="card bg-white rounded-md overflow-hidden text-center shadow max-w-xs lg:mx-0 flex-grow ">
+                  <div class="bg-white h-1/4 py-12 px-5">
+                       <h1 class="capitalize font-bold text-5xl text-blue-500" id="textLeft">$26</h1>
+                  <p class="text-gray-500 mt-1">per month</p>
+              </div>
+                   <div class="bg-blue-500 text-white pt-6 pb-9 px-8" id="bgLeft">
+                     <h2 class="uppercase text-2xl font-semibold mb-5">basic</h2>
+                     <ul class="flex flex-col gap-2.5">
+                       <li class="flex items-center capitalize text-sm md:text-base"><svg class="w-5 h-5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>lorem ipsum dolor sit amet</li>
+                            <li class="flex items-center capitalize text-sm md:text-base"><svg class="w-5 h-5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>lorem ipsum dolor sit amet</li>
+                                       <li class="flex items-center capitalize text-sm md:text-base"><svg class="w-5 h-5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>lorem ipsum dolor sit amet</li>
+                                       <li class="flex items-center capitalize text-sm md:text-base"><svg class="w-5 h-5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>lorem ipsum dolor sit amet</li>
+                     </ul>
+                    <button class="text-blue-500 bg-white py-2.5 px-12 shadow-md rounded-full inline mt-8 font-bold tracking-wider uppercase text-xs" id="btnLeft">choose</button>
+               </div>
+                </div>
+            
+                <div class="card lg:-mt-1 bg-white rounded-md overflow-hidden text-center shadow max-w-xs my-5 lg:my-0 lg:mx-0 flex-grow transform lg:scale-110 z-10">
+                  <div class="bg-white py-14 px-5">
+                       <h1 class="capitalize font-bold text-5xl text-indigo-500" id="textMiddle">$30</h1>
+                  <p class="text-gray-500 mt-1">per month</p>
+              </div>
+                   <div class="bg-indigo-500 text-white pt-6 pb-9 px-8" id="bgMiddle">
+                     <h2 class="uppercase text-2xl font-semibold mb-5">premium</h2>
+                     <ul class="flex flex-col gap-2.5">
+                       <li class="flex items-center capitalize text-sm md:text-base"><svg class="w-5 h-5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>lorem ipsum dolor sit amet</li>
+                            <li class="flex items-center capitalize text-sm md:text-base"><svg class="w-5 h-5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>lorem ipsum dolor sit amet</li>
+                                       <li class="flex items-center capitalize text-sm md:text-base"><svg class="w-5 h-5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>lorem ipsum dolor sit amet</li>
+                                       <li class="flex items-center capitalize text-sm md:text-base"><svg class="w-5 h-5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>lorem ipsum dolor sit amet</li>
+                     </ul>
+                    <button class="text-indigo-500 bg-white py-2.5 px-12 shadow-md rounded-full inline mt-8 font-bold tracking-wider uppercase text-xs" id="btnMiddle">choose</button>
+               </div>
+                </div>
+              
+                 <div class="card bg-white rounded-md overflow-hidden text-center shadow max-w-xs lg:mx-0 flex-grow ">
+                  <div class="bg-white py-12 px-5">
+                       <h1 class="capitalize font-bold text-5xl text-blue-400" id="textRight">$45</h1>
+                  <p class="text-gray-500 mt-1">per month</p>
+              </div>
+                   <div class="bg-blue-400 text-white pt-6 pb-9 px-8" id="bgRight">
+                     <h2 class="uppercase text-2xl font-semibold mb-5">ultimate</h2>
+                     <ul class="flex flex-col gap-2.5">
+                       <li class="flex items-center capitalize text-sm md:text-base"><svg class="w-5 h-5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>lorem ipsum dolor sit amet</li>
+                            <li class="flex items-center capitalize text-sm md:text-base"><svg class="w-5 h-5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>lorem ipsum dolor sit amet</li>
+                                       <li class="flex items-center capitalize text-sm md:text-base"><svg class="w-5 h-5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>lorem ipsum dolor sit amet</li>
+                                       <li class="flex items-center capitalize text-sm md:text-base"><svg class="w-5 h-5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>lorem ipsum dolor sit amet</li>
+                     </ul>
+                    <button class="text-blue-400 bg-white py-2.5 px-12 shadow-md rounded-full inline mt-8 font-bold tracking-wider uppercase text-xs" id="btnRight">choose</button>
+               </div>
+                </div>
+            </div>
+                </div>
+             
+            <div class="fixed top-5 right-0">
+             
+              <div class="flex items-center">
+                
+            <div class="changeBg bg-white px-2 py-2">
+              <div class="flex items-center">
+                   <svg class="settings w-8 h-8 transform hover:text-blue-600 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                 <ul class="ml-3 flex items-center gap-2 flex-grow shrink-0">
+                  <li class="w-8 h-8 bg-indigo-500 cursor-pointer"></li>
+                    <li class="w-8 h-8 bg-red-500 cursor-pointer"></li>
+                    <li class="w-8 h-8 bg-pink-500 cursor-pointer"></li>
+                    <li class="w-8 h-8 bg-green-500 cursor-pointer"></li>
+                </ul>
+              </div>
+             
+            </div>
+             
+             
+            </div>
+            </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script> -->
+
+    <!-- custom script -->
+    <script>
+const cog = document.querySelector(".settings")
+      change = document.querySelector(".changeBg")
+
+textLeft = document.querySelector("#textLeft")
+bgLeft = document.querySelector("#bgLeft")
+btnLeft = document.querySelector("#btnLeft")
+
+textMiddle = document.querySelector("#textMiddle")
+bgMiddle = document.querySelector("#bgMiddle")
+btnMiddle = document.querySelector("#btnMiddle")
+
+textRight = document.querySelector("#textRight")
+bgRight = document.querySelector("#bgRight")
+btnRight = document.querySelector("#btnRight")
+
+ colorIndigo = document.querySelector(".changeBg ul li:nth-of-type(1)")
+ colorRed = document.querySelector(".changeBg ul li:nth-of-type(2)")
+ colorPink = document.querySelector(".changeBg ul li:nth-of-type(3)")
+ colorGreen = document.querySelector(".changeBg ul li:nth-of-type(4)");
+
+cog.addEventListener("click",() =>{
+  change.classList.toggle("open");
+ 
+});
+
+colorIndigo.addEventListener("click",() =>{
+const colorLeft = "#3B82F6";
+  textLeft.style.color = colorLeft;
+ bgLeft.style.background = colorLeft;
+ btnLeft.style.color = colorLeft;
+  
+  const colorMiddle = "#6366F1";
+  textMiddle.style.color = colorMiddle;
+ bgMiddle.style.background  = colorMiddle;
+ btnMiddle.style.color = colorMiddle;
+  
+  const colorRight = "#60A5FA";
+  textRight.style.color = colorRight;
+ bgRight.style.background  = colorRight;
+ btnRight.style.color = colorRight;
+});
+
+colorRed.addEventListener("click",() =>{
+const colorLeft = "#EC4899";
+  textLeft.style.color = colorLeft;
+ bgLeft.style.background = colorLeft;
+ btnLeft.style.color = colorLeft;
+  
+  const colorMiddle = "#EF4444";
+  textMiddle.style.color = colorMiddle;
+ bgMiddle.style.background  = colorMiddle;
+ btnMiddle.style.color = colorMiddle;
+  
+  const colorRight = "#F472B6";
+  textRight.style.color = colorRight;
+ bgRight.style.background  = colorRight;
+ btnRight.style.color = colorRight;
+});
+
+colorRed.addEventListener("click",() =>{
+const colorLeft = "#EC4899";
+  textLeft.style.color = colorLeft;
+ bgLeft.style.background = colorLeft;
+ btnLeft.style.color = colorLeft;
+  
+  const colorMiddle = "#EF4444";
+  textMiddle.style.color = colorMiddle;
+ bgMiddle.style.background  = colorMiddle;
+ btnMiddle.style.color = colorMiddle;
+  
+  const colorRight = "#F472B6";
+  textRight.style.color = colorRight;
+ bgRight.style.background  = colorRight;
+ btnRight.style.color = colorRight;
+});
+
+colorPink.addEventListener("click",() =>{
+const colorLeft = "#10B981";
+  textLeft.style.color = colorLeft;
+ bgLeft.style.background = colorLeft;
+ btnLeft.style.color = colorLeft;
+  
+  const colorMiddle = "#EC4899";
+  textMiddle.style.color = colorMiddle;
+ bgMiddle.style.background  = colorMiddle;
+ btnMiddle.style.color = colorMiddle;
+  
+  const colorRight = "#34D399";
+  textRight.style.color = colorRight;
+ bgRight.style.background  = colorRight;
+ btnRight.style.color = colorRight;
+});
+
+colorGreen.addEventListener("click",() =>{
+const colorLeft = "#EF4444";
+  textLeft.style.color = colorLeft;
+ bgLeft.style.background = colorLeft;
+ btnLeft.style.color = colorLeft;
+  
+  const colorMiddle = "#10B981";
+  textMiddle.style.color = colorMiddle;
+ bgMiddle.style.background  = colorMiddle;
+ btnMiddle.style.color = colorMiddle;
+  
+  const colorRight = "#F87171";
+  textRight.style.color = colorRight;
+ bgRight.style.background  = colorRight;
+ btnRight.style.color = colorRight;
+});
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!--  -->
+    <title>continuous-Smooth-slider </title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"> -->
+    <!--custom style -->
+    <style>
+        .showcase {
+  display: block;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.showcase .slider {
+  display: block;
+  list-style: none;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+.showcase .slider .item {
+  display: block;
+  float: left;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  line-height: 200px;
+  text-align: center;
+}
+.showcase .slider .item img {
+  vertical-align: middle;
+  max-width: 100%;
+  max-height: 100%;
+  -webkit-transition: 0 linear left;
+  -moz-transition: 0 linear left;
+  transition: 0 linear left;
+  opacity: 0.65;
+  opacity: 1;
+}
+    </style>
+</head>
+
+<body>
+    <section class="">
+        <div class="showcase">
+            <div class="slider clearfix">
+              <img src="https://source.unsplash.com/random?1=2" alt="" class="item"/>
+              <img src="https://source.unsplash.com/random?1=2" alt="" class="item"/>
+              <img src="https://source.unsplash.com/random?1=2" alt="" class="item"/>
+              <img src="https://source.unsplash.com/random?1=2" alt="" class="item"/>
+              <img src="https://source.unsplash.com/random?1=2" alt="" class="item"/>
+              <img src="https://source.unsplash.com/random?1=2" alt="" class="item"/>
+              <img src="https://source.unsplash.com/random?1=2" alt="" class="item"/>
+              <img src="https://source.unsplash.com/random?1=2" alt="" class="item"/>
+              <img src="https://source.unsplash.com/random?1=2" alt="" class="item"/>
+              <img src="https://source.unsplash.com/random?1=2" alt="" class="item"/>
+            </div>
+          </div>
+  
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script> -->
+
+    <!-- custom script -->
+    <script>
+$(function(){
+  var $slider = $('.slider');
+  var sizeImage = 200;
+  var items = $slider.children().length;
+  var itemswidth = (items * sizeImage); // 140px width for each client item 
+  $slider.css('width',itemswidth);
+  
+  var rotating = true;
+  var sliderspeed = 0;
+  var seeitems = setInterval(rotateSlider, sliderspeed);
+  
+  $(document).on({
+    mouseenter: function(){
+      rotating = false; // turn off rotation when hovering
+    },
+    mouseleave: function(){
+      rotating = true;
+    }
+  }, '.showcase');
+  
+  function rotateSlider() {
+    if(rotating != false) {
+      var $first = $('.slider .item:first');
+      $first.animate({ 'margin-left': '-'+sizeImage+'px' }, 3000, "linear", function() {
+        $first.remove().css({ 'margin-left': '0px' });
+        $('.slider .item:last').after($first);
+      });
+    }else{
+      $first.stop();
+    }
+  }
+});
+
+    </script>
+
+</body>
+
+</html>
