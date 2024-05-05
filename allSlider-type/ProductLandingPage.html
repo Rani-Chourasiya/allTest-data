@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!--  -->
+    <title> Product Landing Page</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"> -->
+    <!--custom style -->
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .newsletter .custom-container,
+        .blog .custom-container,
+        .about .custom-container,
+        header .custom-container {
+            max-width: calc(100% - 4em);
+            margin: 0 auto;
+        }
+
+        @media (min-width: 59.375em) {
+
+            .newsletter .custom-container,
+            .blog .custom-container,
+            .about .custom-container,
+            header .custom-container {
+                max-width: calc(100% - 8em);
+            }
+        }
+
+        .blog p,
+        .about .custom-container .left p {
+            font-size: 18px;
+            color: #171717;
+        }
+
+        h2 {
+            font-size: 2rem;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+        }
+
+        header {
+            position: relative;
+            width: 100%;
+            height: 680px;
+            overflow: hidden;
+            color: #fff;
+            padding: 2.3em 0;
+        }
+
+        header .custom-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        header::before {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #AB1383;
+            border-radius: 0 0 50% 50%/0 0 100% 100%;
+            transform: scalex(2);
+        }
+
+        @media (min-width: 59.375em) {
+            header::before {
+                transform: scalex(1.5);
+            }
+        }
+
+        header .logo img {
+            width: 160px;
+        }
+
+        header .menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        @media (min-width: 59.375em) {
+            header .menu {
+                flex-direction: row;
+            }
+        }
+
+        header .menu ul {
+            display: flex;
+        }
+
+        header .menu ul li+li {
+            margin-left: 30px;
+        }
+
+        header .content {
+            text-align: center;
+            margin-top: 2.5em;
+            line-height: 4em;
+        }
+
+        header .content h1 {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 2.5rem;
+            line-height: 1.4em;
+        }
+
+        @media (min-width: 59.375em) {
+            header .content h1 {
+                font-size: 4rem;
+                line-height: 1.2em;
+            }
+        }
+
+        header .content span {
+            font-weight: 600;
+            font-size: 2.2rem;
+        }
+
+        @media (min-width: 59.375em) {
+            header .content span {
+                font-size: 3rem;
+            }
+        }
+
+        header .content .videoWrapper {
+            position: relative;
+            padding-top: 56.25%;
+            /* 16:9 */
+            height: 0;
+            margin-top: 2em;
+        }
+
+        header .content .videoWrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            max-width: 560px;
+            max-height: 315px;
+        }
+
+        .about {
+            padding: 4em 0;
+        }
+
+        .about .custom-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 59.375em) {
+            .about .custom-container {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+
+        .about .custom-container .left {
+            align-self: center;
+        }
+
+        .about .custom-container .left p {
+            line-height: 2.6em;
+        }
+
+        .about .custom-container .left p:first-letter {
+            font-size: 200%;
+            color: #AB1383;
+            font-weight: 600;
+        }
+
+        .about .custom-container .right {
+            justify-self: center;
+        }
+
+        .about .custom-container .right .imgWrapper {
+            position: relative;
+        }
+
+        .about .custom-container .right .imgWrapper img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .about .custom-container .right .imgWrapper img:nth-child(1) {
+            width: calc(300px + 3vw);
+        }
+
+        .about .custom-container .right .imgWrapper img:nth-child(2) {
+            width: clamp(160px, 60%, 260px);
+            position: absolute;
+            bottom: 0;
+            left: -20px;
+        }
+
+        .blog {
+            padding-bottom: 8em;
+        }
+
+        .blog h2 {
+            text-align: center;
+            color: #AB1383;
+            margin: 20px 0 40px;
+        }
+
+        .blog .news {
+            display: grid;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            grid-column: 1/-1;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .blog .news .card {
+            padding: 2em;
+            border-radius: 4px;
+            box-shadow: 2px 2px 15px #ab138359;
+        }
+
+        .blog .news .card span {
+            margin: 5px 0 15px;
+            display: block;
+        }
+
+        .blog .news .card:nth-child(odd) {
+            background: #AB1383;
+            color: #fff;
+        }
+
+        @media (min-width: 77.125em) {
+            .blog .news .card:nth-child(odd) {
+                grid-column: span 1;
+            }
+        }
+
+        .blog .news .card:nth-child(odd) p {
+            color: #fff;
+        }
+
+        @media (min-width: 77.125em) {
+            .blog .news .card:nth-child(1) {
+                grid-column: span 2;
+            }
+        }
+
+        @media (min-width: 94.6875em) {
+            .blog .news .card:nth-child(1) {
+                grid-column: span 1;
+            }
+        }
+
+        .blog .news .card:nth-child(even) {
+            background: #fff;
+            color: #AB1383;
+        }
+
+        .blog .news .card:nth-child(even) p {
+            color: #AB1383;
+        }
+
+        @media (min-width: 77.125em) {
+            .blog .news .card:nth-child(6) {
+                grid-column: span 2;
+            }
+        }
+
+        @media (min-width: 94.6875em) {
+            .blog .news .card:nth-child(6) {
+                grid-column: span 1;
+            }
+        }
+
+        @media (min-width: 94.6875em) {
+
+            .blog .news .card:nth-child(2),
+            .blog .news .card:nth-child(3),
+            .blog .news .card:nth-child(4),
+            .blog .news .card:nth-child(5) {
+                grid-column: span 2;
+            }
+        }
+
+        .blog p {
+            line-height: 1.8em;
+        }
+
+        .blog .custom-container {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 30px;
+        }
+
+        .newsletter {
+            background: #AB1383;
+            color: #fff;
+            display: grid;
+            grid-template-columns: 1fr;
+            padding: 5em 0 2em;
+            position: relative;
+            min-height: 60vh;
+        }
+
+        @media (min-width: 59.375em) {
+            .newsletter {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .newsletter h2 {
+            margin-bottom: 20px;
+        }
+
+        .newsletter label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .newsletter input {
+            border: none;
+            outline: none;
+            border: 1px solid #fff;
+            padding: 1em;
+            max-width: 320px;
+            width: 90%;
+            position: relative;
+            border-radius: 4px;
+        }
+
+        @media (min-width: 59.375em) {
+            .newsletter input {
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+                border-top-right-radius: 0px;
+                border-bottom-right-radius: 0px;
+            }
+        }
+
+        .newsletter input[type=submit] {
+            border: none;
+            outline: none;
+            text-transform: uppercase;
+            background: #070707;
+            color: #fff;
+            font-weight: 600;
+            padding: 1.1em 1.3em;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 20px;
+            width: 140px;
+        }
+
+        @media (min-width: 59.375em) {
+            .newsletter input[type=submit] {
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+                border-top-left-radius: 0px;
+                border-bottom-left-radius: 0px;
+                position: absolute;
+                margin-top: 0;
+            }
+        }
+
+        .newsletter img {
+            max-width: 100%;
+            width: 350px;
+            position: absolute;
+            top: -75px;
+            right: 65px;
+            display: none;
+            visibility: hidden;
+        }
+
+        @media (min-width: 59.375em) {
+            .newsletter img {
+                display: block;
+                visibility: visible;
+            }
+        }
+
+        footer {
+            background: #070707;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="">
+        <h1 class="text-center my-5">Product Landing Page</h1>
+        <div id="wrapper">
+            <header id="header">
+                <div class="custom-container">
+                    <div class="menu">
+                        <div class="logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/c/c9/Whiskas_logo.png"
+                                alt="Whiskas Logo" id="header-img">
+                        </div>
+                        <nav id="nav-bar">
+                            <ul>
+                                <li><a href="#about" class="nav-link">about</a></li>
+                                <li><a href="#blog" class="nav-link">blog</a></li>
+                                <li><a href="#newsletter" class="nav-link">newsletter</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div class="content">
+                        <h1>complete nutrition <br />
+                            <span>great taste</span>
+                        </h1>
+                        <div class="videoWrapper">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/8hQB8h1-Ke8"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen id="video"></iframe>
+                        </div>
+
+                    </div>
+                </div>
+            </header>
+            <section class="about" id="about">
+                <div class="custom-container">
+                    <div class="left">
+                        <p>Whiskas (formerly known as Kal Kan) is a brand of cat food sold internationally. <br /> It is
+                            available either as small meaty pieces in sauce, gravy or jelly packaged in tins, foil trays
+                            or pouches, as well as in the form of small biscuits sold in cartons or pouches and milk
+                            sold in small bottles.
+                            <br />
+                            Its packaging has a recognisable purple color and a stylized silhouette of a cat's head.
+                        </p>
+                    </div>
+                    <div class="right">
+                        <div class="imgWrapper">
+                            <img src="https://5.imimg.com/data5/CD/KL/NE/SELLER-41810337/220827960-7-kg-500x500.png"
+                                alt="Food">
+                            <img src="https://sniffynose.com/wp-content/uploads/2020/10/329790892_kitten_chickeningravy_400x510.png"
+                                alt="Food">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="blog" id="blog">
+                <h2>blog</h2>
+                <div class="custom-container">
+                    <div class="news">
+                        <div class="card">
+                            <h3>New Feed arrived</h3>
+                            <span>March 20, 2021</span>
+                            <p>Pellentesque ipsum. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna.
+                                Lectus justo, vulputate eget. </p>
+                        </div>
+                        <div class="card">
+                            <h3>New Feed arrived</h3>
+                            <span>March 20, 2021</span>
+                            <p>Pellentesque ipsum. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna.
+                                Lectus justo, vulputate eget. </p>
+                        </div>
+                        <div class="card">
+                            <h3>New Feed arrived</h3>
+                            <span>March 20, 2021</span>
+                            <p>Pellentesque ipsum. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna.
+                                Lectus justo, vulputate eget. </p>
+                        </div>
+                        <div class="card">
+                            <h3>New Feed arrived</h3>
+                            <span>March 20, 2021</span>
+                            <p>Pellentesque ipsum. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna.
+                                Lectus justo, vulputate eget. </p>
+                        </div>
+                        <div class="card">
+                            <h3>New Feed arrived</h3>
+                            <span>March 20, 2021</span>
+                            <p>Pellentesque ipsum. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna.
+                                Lectus justo, vulputate eget. </p>
+                        </div>
+                        <div class="card">
+                            <h3>New Feed arrived</h3>
+                            <span>March 20, 2021</span>
+                            <p>Pellentesque ipsum. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna.
+                                Lectus justo, vulputate eget. </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="newsletter" id="newsletter">
+                <div class="content">
+                    <div class="custom-container">
+                        <h2>newsletter</h2>
+                        <form id="form" action="https://www.freecodecamp.com/email-submit">
+                            <label for="email">Email:</label>
+                            <input type="email" required name="email" placeholder="Enter your email" id="email">
+                            <input id="submit" type="submit" value="GET STARTED">
+                        </form>
+                    </div>
+                </div>
+                <img src="http://pngimg.com/uploads/cat/cat_PNG50514.png" alt="Cat">
+            </section>
+            <footer>&copy; 2021 Whiskas</footer>
+        </div>
+
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script> -->
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+    <!-- custom script -->
+    <script>
+
+    </script>
+
+</body>
+
+</html>

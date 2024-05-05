@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!--  -->
+    <title>Collections List with filtering #tailwind #grid #js </title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <!--custom style -->
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap");
+
+        body {
+            background: #d0dae0;
+            background: linear-gradient(110.79248633202553deg,
+                    rgba(226, 235, 239, 1) 5.533854166666667%,
+                    rgba(208, 218, 224, 1) 96.67968749999999%);
+        }
+
+        h1 {
+            font-family: "Playfair Display", serif;
+        }
+
+        main {
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: max-content;
+            max-width: 980px;
+            margin: 0 auto;
+            padding-block: min(20vh, 10rem);
+        }
+
+        @media screen and (min-width: 640px) {
+            main {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+
+        @media screen and (min-width: 1024px) {
+            main {
+                grid-template-columns: repeat(12, 1fr);
+            }
+        }
+
+        .btn.active {
+            background-color: #666;
+            color: white;
+        }
+
+        .filterDiv {
+            display: none;
+        }
+
+        .show {
+            display: grid;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="">
+        <main class="min-h-screen grid place-content-center mx-10 lg:mx-auto">
+            <h1 class="capitalize text-5xl font-semibold col-span-12">popular collections</h1>
+            <div class="capitalize col-span-3 sm:col-span-6 lg:col-span-12 flex gap-2 flex-wrap items-center mt-6 mb-12"
+                id="BtnContainer">
+                <span class="bg-gray-100 px-2 py-2 rounded-md inline-block cursor-pointer hover:bg-gray-300 btn active"
+                    onclick="filterSelection('all')">all</span>
+                <span class="bg-gray-100 px-2 py-2 rounded-md inline-block cursor-pointer hover:bg-gray-300 btn"
+                    onclick="filterSelection('people')">people</span>
+                <span class="bg-gray-100 px-2 py-2 rounded-md inline-block cursor-pointer hover:bg-gray-300 btn"
+                    onclick="filterSelection('new-york')">new york</span>
+                <span class="bg-gray-100 px-2 py-2 rounded-md inline-block cursor-pointer hover:bg-gray-300 btn"
+                    onclick="filterSelection('nature')">nature</span>
+                <span class="bg-gray-100 px-2 py-2 rounded-md inline-block cursor-pointer hover:bg-gray-300 btn"
+                    onclick="filterSelection('animals')">animals</span>
+                <span class="bg-gray-100 px-2 py-2 rounded-md inline-block cursor-pointer hover:bg-gray-300 btn"
+                    onclick="filterSelection('history')">history</span>
+                <span class="bg-gray-100 px-2 py-2 rounded-md inline-block cursor-pointer hover:bg-gray-300 btn"
+                    onclick="filterSelection('fashion')">fashion</span>
+            </div>
+            <div class="col-span-12 grid sm:grid-cols-6 lg:grid-cols-12 gap-10 container">
+                <div
+                    class="bg-gray-100 col-span-3 lg:col-span-4 grid grid-cols-3 gap-3 p-4 rounded-3xl shadow-lg filterDiv people">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                        alt="Jane Doe" class="max-w-full col-span-3 rounded-2xl cursor-pointer">
+
+                    <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"
+                        alt="Jane Doe" class="w-full rounded-2xl h-16 object-cover cursor-pointer">
+
+                    <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=848&q=80"
+                        alt="Jane Doe" class="w-full rounded-2xl h-16 object-cover cursor-pointer">
+
+                    <img src="https://images.unsplash.com/photo-1462804993656-fac4ff489837?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                        alt="Jane Doe" class="w-full rounded-2xl h-16 object-cover cursor-pointer">
+
+                    <div class="flex justify-between col-span-3">
+                        <h2 class="text-lg font-medium cursor-pointer hover:text-purple-500">People</h2>
+                        <span class="flex items-center text-xs font-medium"><svg class="w-6 h-6" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                </path>
+                            </svg>144</span>
+                    </div>
+
+                </div>
+                <div
+                    class="bg-gray-100 col-span-3 lg:col-span-4 grid grid-cols-3 gap-3 p-4 rounded-3xl shadow-lg filterDiv nature">
+                    <img src="https://images.unsplash.com/photo-1444464666168-49d633b86797?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80"
+                        alt="Animals" class="max-w-full col-span-3 rounded-2xl cursor-pointer">
+
+                    <img src="https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                        alt="Spain" class="w-full rounded-2xl h-16 object-cover cursor-pointer">
+
+                    <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=974&q=80"
+                        alt="Nature" class="w-full rounded-2xl h-16 object-cover cursor-pointer">
+
+                    <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                        alt="Nature" class="w-full rounded-2xl h-16 object-cover cursor-pointer">
+
+                    <div class="flex justify-between col-span-3">
+                        <h2 class="text-lg font-medium cursor-pointer hover:text-green-500">Nature</h2>
+                        <span class="flex items-center text-xs font-medium"><svg class="w-6 h-6" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                </path>
+                            </svg>7K</span>
+                    </div>
+
+                </div>
+                <div
+                    class="bg-gray-100 col-span-3 lg:col-span-4 grid grid-cols-3 gap-3 p-4 rounded-3xl shadow-lg filterDiv history">
+                    <img src="https://images.unsplash.com/photo-1525874684015-58379d421a52?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                        alt="Italy" class="max-w-full col-span-3 rounded-2xl cursor-pointer">
+
+                    <img src="https://images.unsplash.com/photo-1566127444979-b3d2b654e3d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80"
+                        alt="Louvre" class="w-full rounded-2xl h-16 object-cover cursor-pointer">
+
+                    <img src="https://images.unsplash.com/photo-1533929736458-ca588d08c8be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                        alt="London" class="w-full rounded-2xl h-16 object-cover cursor-pointer">
+
+                    <img src="https://images.unsplash.com/photo-1521464302861-ce943915d1c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"
+                        alt="San Francisco" class="w-full rounded-2xl h-16 object-cover cursor-pointer">
+
+                    <div class="flex justify-between col-span-3">
+                        <h2 class="text-lg font-medium cursor-pointer hover:text-blue-500">History</h2>
+                        <span class="flex items-center text-xs font-medium"><svg class="w-6 h-6" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                </path>
+                            </svg>144</span>
+                    </div>
+
+                </div>
+                <div
+                    class="bg-gray-100 col-span-3 lg:col-span-4 grid grid-cols-3 gap-3 p-4 rounded-3xl shadow-lg filterDiv animals">
+                    <img src="https://images.unsplash.com/photo-1589656966895-2f33e7653819?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                        alt="Polar Bear" class="max-w-full col-span-3 rounded-2xl cursor-pointer">
+
+                    <img src="https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80"
+                        alt="Panda" class="w-full rounded-2xl h-16 object-cover cursor-pointer">
+
+                    <img src="https://images.unsplash.com/photo-1474511320723-9a56873867b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80"
+                        alt="Fox" class="w-full rounded-2xl h-16 object-cover cursor-pointer">
+
+                    <img src="https://images.unsplash.com/photo-1456926631375-92c8ce872def?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                        alt="Leopard" class="w-full rounded-2xl h-16 object-cover cursor-pointer">
+
+                    <div class="flex justify-between col-span-3">
+                        <h2 class="text-lg font-medium cursor-pointer hover:text-blue-500">Animals</h2>
+                        <span class="flex items-center text-xs font-medium"><svg class="w-6 h-6" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                </path>
+                            </svg>10K</span>
+                    </div>
+
+                </div>
+                <div
+                    class="bg-gray-100 col-span-3 lg:col-span-4 grid grid-cols-3 gap-3 p-4 rounded-3xl shadow-lg filterDiv new-york">
+                    <img src="https://images.unsplash.com/photo-1522083165195-3424ed129620?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=997&q=80"
+                        alt="Brooklyn Bridge" class="max-w-full col-span-3 rounded-2xl cursor-pointer">
+
+                    <img src="https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                        alt="New York" class="w-full rounded-2xl h-16 object-cover cursor-pointer">
+
+                    <img src="https://images.unsplash.com/photo-1499092346589-b9b6be3e94b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"
+                        alt="Manhattan" class="w-full rounded-2xl h-16 object-cover cursor-pointer">
+
+                    <img src="https://images.unsplash.com/photo-1418075285575-c402f1f7340f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"
+                        alt="New York" class="w-full rounded-2xl h-16 object-cover cursor-pointer">
+
+                    <div class="flex justify-between col-span-3">
+                        <h2 class="text-lg font-medium cursor-pointer hover:text-blue-500">New York</h2>
+                        <span class="flex items-center text-xs font-medium"><svg class="w-6 h-6" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                </path>
+                            </svg>885</span>
+                    </div>
+
+                </div>
+                <div
+                    class="bg-gray-100 col-span-3 lg:col-span-4 grid grid-cols-3 gap-3 p-4 rounded-3xl shadow-lg filterDiv fashion">
+                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                        alt="Shopping freak" class="max-w-full col-span-3 rounded-2xl cursor-pointer">
+
+                    <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                        alt="Fashion" class="w-full rounded-2xl h-16 object-cover cursor-pointer">
+
+                    <img src="https://images.unsplash.com/photo-1537832816519-689ad163238b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=859&q=80"
+                        alt="Fashion" class="w-full rounded-2xl h-16 object-cover cursor-pointer">
+
+                    <img src="https://images.unsplash.com/photo-1506152983158-b4a74a01c721?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=873&q=80"
+                        alt="Fashion" class="w-full rounded-2xl h-16 object-cover cursor-pointer">
+
+                    <div class="flex justify-between col-span-3">
+                        <h2 class="text-lg font-medium cursor-pointer hover:text-blue-500">Fashion</h2>
+                        <span class="flex items-center text-xs font-medium"><svg class="w-6 h-6" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                </path>
+                            </svg>2K</span>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
+
+
+    <!-- custom script -->
+    <script>
+        /* inspiration 
+        https://uidesigndaily.com/posts/figma-collections-list-collection-card-day-1577 */
+
+        filterSelection("all");
+        function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("filterDiv");
+            if (c == "all") c = "";
+            for (i = 0; i < x.length; i++) {
+                RemoveClass(x[i], "show");
+                if (x[i].className.indexOf(c) > -1) AddClass(x[i], "show");
+            }
+        }
+
+        function AddClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                if (arr1.indexOf(arr2[i]) == -1) {
+                    element.className += " " + arr2[i];
+                }
+            }
+        }
+
+        function RemoveClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                while (arr1.indexOf(arr2[i]) > -1) {
+                    arr1.splice(arr1.indexOf(arr2[i]), 1);
+                }
+            }
+            element.className = arr1.join(" ");
+        }
+
+        // Add active class to the current button (highlight it)
+        var btnContainer = document.getElementById("BtnContainer");
+        var btns = btnContainer.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+
+    </script>
+
+</body>
+
+</html>

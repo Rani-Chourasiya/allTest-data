@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>RESPONSIVE Timeline in PURE CSS 😎️
+    </title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Libre+Bodoni&family=Oswald:wght@700&display=swap');
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Libre Bodoni', serif;
+  background: black;
+  color: white;
+  font-size: 21px;
+}
+
+html, body {
+  margin: 0;
+}
+
+/* Timeline */
+
+.timeline {
+  /* ----------
+   * Variables:
+   * Try playing around with these values!
+   * ----------
+  */
+  --size: 3rem;
+  --style: solid;
+  --color: #0a9396;
+  --thickness: 5px;
+  --spacing-vertical: 40px;
+  --spacing-horizontal: 10px;
+  
+  display: flex;
+  flex-flow: column;
+  gap: var(--spacing-vertical);
+  
+  padding-left: var(--size);
+  position: relative;
+  
+  margin: 10px;
+  
+  counter-reset: timeline;
+  
+  overflow-x: hidden;
+}
+
+.timeline:before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  
+  content: "";
+  
+  border-left: var(--thickness) var(--style) var(--color);
+  
+  position: absolute;
+  top: 0;
+  left: calc(var(--size) / 2 - var(--thickness)/2);
+}
+
+.timeline p {
+  margin: 0;
+  padding: 0;
+  
+  padding-left: var(--spacing-horizontal);
+  
+  position: relative;
+  counter-increment: timeline;
+}
+
+.timeline p:before {
+  width: var(--size);
+  height: var(--size);
+  
+  content: counter(timeline, decimal-leading-zero);
+  font-size: calc(var(--size) - 1rem);
+  overflow: hidden;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  position: absolute;
+  top: 0;
+  left: calc(-1 * var(--size));
+  
+  background: var(--color);
+  border-radius: 50%;
+  
+  font-weight: bold;
+  font-family: 'Oswald', sans-serif;
+}
+
+@media (min-width: 640px) {
+  .timeline {
+    padding-left: 0;
+  }
+  
+  .timeline:before {
+    left: calc(50% - var(--thickness)/2);
+  }
+  
+  .timeline p {
+    padding-left: 0;
+  }
+  
+  .timeline p:nth-child(odd) {
+    margin-left: calc(50% + var(--size)/2 + var(--spacing-horizontal));
+  }
+  
+  .timeline p:nth-child(even) {
+    margin-right: calc(50% + var(--size)/2 + var(--spacing-horizontal));
+  }
+  
+  .timeline p:nth-child(odd):before {
+    left: calc(-1 * var(--size) - var(--spacing-horizontal));
+  }
+  
+  .timeline p:nth-child(even):before {
+    left: calc(100% + var(--spacing-horizontal));
+  }
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #111;
+}
+
+::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #FFF;
+}
+
+::-webkit-scrollbar-thumb
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #0a9396;
+}
+
+::-webkit-scrollbar-thumb:hover
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #005f73;
+}
+
+::-webkit-scrollbar-thumb:active
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #004755;
+}
+</style>
+</head>
+
+<body>
+    <section class="">
+        <h1 class="text-center my-4">RESPONSIVE Timeline in PURE CSS 😎️</h1>
+    </section>
+    <section class="timeline">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius a ducimus doloribus ex molestias, maiores dolorum corporis soluta magnam voluptatibus illum quibusdam dicta, doloremque non minima delectus eaque sit officia!</p>
+        <p>Temporibus excepturi odio amet tenetur fugiat perferendis cupiditate odit! Hic repellat expedita maxime obcaecati blanditiis temporibus porro? Voluptate ipsa quae, at tempora tempore maxime, atque iste voluptatibus fugit, eius consectetur.</p>
+        <p>Dolorum saepe ut tempore vel voluptatum odio similique nobis, earum rerum culpa deleniti ratione, assumenda sint nam nisi commodi magnam. Enim magnam eligendi dolorem eaque ab sint porro sunt totam.</p>
+        <p>Dolore magni odio natus recusandae, similique sequi molestias placeat, ducimus aliquam quo, saepe harum dicta. Quod deserunt nihil aliquam possimus perferendis. Asperiores placeat hic mollitia? Natus commodi adipisci doloribus. Aliquam.</p>
+        <p>Sint iste doloribus, sunt sit perferendis rem officia ex ipsa dolor commodi asperiores voluptate laboriosam, placeat accusantium ea quas molestiae! Esse rerum fugiat voluptatem, dolor cupiditate reiciendis mollitia optio! Ipsam.</p>
+        <p>Dolor id ducimus quo quas quae nulla eum sunt sapiente minima nesciunt omnis assumenda cum quos error molestias eaque laboriosam sequi reprehenderit esse reiciendis iure deleniti at, laudantium maxime? Reprehenderit!</p>
+        <p>Cupiditate ullam dolore velit sit cumque error nostrum nesciunt repudiandae eveniet. Quisquam sed dolorum asperiores! Ipsam, nobis fuga facilis ipsa aspernatur iste dicta nemo, et delectus quo culpa, reiciendis libero.</p>
+        <p>Vero dolores blanditiis optio distinctio. Cumque porro consequatur ex eligendi odit nostrum ipsam veritatis in tenetur. Debitis aperiam eligendi nulla soluta porro temporibus doloremque consequatur quibusdam, assumenda in explicabo aliquam.</p>
+        <p>Accusantium, optio ratione ipsum quae rem accusamus magnam, autem nemo iste id consectetur temporibus nihil praesentium! At minus porro, ipsum itaque fuga impedit ratione earum facere atque quis voluptates nostrum?</p>
+        <p>Voluptas, culpa? Nobis consequuntur alias doloribus quos optio. Assumenda, esse aut nam beatae omnis veniam ad deserunt perferendis iusto distinctio! Asperiores, debitis est doloremque quidem rerum iste numquam. Ea, rerum.</p>
+        <p>Suscipit nesciunt mollitia, rerum voluptatum esse id dolore quia harum odit, molestiae eius magni veritatis ut dolorem sapiente animi totam modi eos alias consectetur, ab illum. Tenetur pariatur repellat unde!</p>
+        <p>Provident ducimus vel mollitia voluptatibus iure eligendi maiores explicabo. Dolor accusamus, corporis praesentium repellat eligendi iste in, inventore asperiores odio blanditiis quibusdam veniam dolores laborum, illum quod expedita earum facere?</p>
+      </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <script>
+      
+        </script>
+</body>
+
+</html>

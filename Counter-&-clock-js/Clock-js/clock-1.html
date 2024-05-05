@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Clock</title>
+<style>
+.wall-clock {
+  /* Initial value */
+/*   --time: calc((60 * 60 * 3) + (60 * 47) + 6);  */
+  --time: 0;
+  /* starts from 00:00:00 am in seconds */
+  --time-plus: var(--time);
+  /*  Settings  */
+  --clock-size: 300px;
+  --clock-border-width: calc(0.025 * var(--clock-size));
+  --clock-rounded-size: calc(0.2 * var(--clock-size));
+  --color-light: #f0f0f030;
+  --color-shadow: #00000030;
+  --clock-hand-width: calc(0.05 * var(--clock-size));
+  --clock-hand-second-color: #ee2222;
+  background-color: inherit;
+  display: block;
+  position: absolute; /* Size won't relative to body size */
+  width: var(--clock-size);
+  height: var(--clock-size);
+  border: var(--clock-border-width) solid white;
+  padding: calc(0.025 * var(--clock-size));
+  box-sizing: border-box;
+  box-shadow: 
+    calc(-1 * var(--clock-border-width)) calc(-1 * var(--clock-border-width)) calc(3 * var(--clock-border-width)) var(--color-light),
+    inset calc(-1 * var(--clock-border-width)) calc(-1 * var(--clock-border-width)) calc(3 * var(--clock-border-width)) var(--color-light),
+    calc(1 * var(--clock-border-width)) calc(1 * var(--clock-border-width)) calc(3 * var(--clock-border-width)) var(--color-shadow),
+    inset calc(1 * var(--clock-border-width)) calc(1 * var(--clock-border-width)) calc(3 * var(--clock-border-width)) var(--color-shadow);
+  
+  /* Centering clock content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wall-clock.rounded {
+  border-radius: var(--clock-rounded-size);
+}
+.wall-clock.circle {
+  border-radius: var(--clock-size);
+}
+/* Centering the clock */
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+/* The center point */
+.wall-clock::after {
+  content: '';
+  position: absolute;
+  width: var(--clock-hand-width);
+  height: var(--clock-hand-width);
+  box-sizing: border-box;
+  border: calc(0.25 * var(--clock-hand-width)) solid var(--clock-hand-second-color);
+  border-radius: 50%;
+  background-color: inherit;
+}
+
+/* Clock nums */
+.wall-clock-nums {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-weight: bold;
+}
+.wall-clock-nums [num] {
+  --num-degree-pos: 0deg; /* for num 12 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: rotate(var(--num-degree-pos));
+/*   background-color: blue; */
+}
+.wall-clock-nums [num]::before {
+  content: attr(num);
+  line-height: calc(0.1 * var(--clock-size));
+  font-size: calc(0.1 * var(--clock-size));
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: calc(0.1 * var(--clock-size));
+  heigth: calc(0.1 * var(--clock-size));
+  text-align: center;
+  transform: translateX(-50%) rotate(calc(-1 * var(--num-degree-pos)));
+}
+.wall-clock-nums [num]:not(.numeric)::before {
+  --num-degree-pos: 0deg;
+  content: '';
+  background-color: var(--text-color);
+  width: calc(0.007 * var(--clock-size));
+  height: calc(0.05 * var(--clock-size));
+}
+.wall-clock-nums [num$=".5"]:not(.numeric)::before {
+  width: calc(0.001 * var(--clock-size));
+  height: calc(0.025 * var(--clock-size));
+}
+.wall-clock-nums [num="12.5"] {--num-degree-pos: 15deg;}
+.wall-clock-nums [num="1"] {--num-degree-pos: 30deg;}
+.wall-clock-nums [num="1.5"] {--num-degree-pos: 45deg;}
+.wall-clock-nums [num="2"] {--num-degree-pos: 60deg;}
+.wall-clock-nums [num="2.5"] {--num-degree-pos: 75deg;}
+.wall-clock-nums [num="3"] {--num-degree-pos: 90deg;}
+.wall-clock-nums [num="3.5"] {--num-degree-pos: 105deg;}
+.wall-clock-nums [num="4"] {--num-degree-pos: 120deg;}
+.wall-clock-nums [num="4.5"] {--num-degree-pos: 135deg;}
+.wall-clock-nums [num="5"] {--num-degree-pos: 150deg;}
+.wall-clock-nums [num="5.5"] {--num-degree-pos: 165deg;}
+.wall-clock-nums [num="6"] {--num-degree-pos: 180deg;}
+.wall-clock-nums [num="6.5"] {--num-degree-pos: 195deg;}
+.wall-clock-nums [num="7"] {--num-degree-pos: 210deg;}
+.wall-clock-nums [num="7.5"] {--num-degree-pos: 225deg;}
+.wall-clock-nums [num="8"] {--num-degree-pos: 240deg;}
+.wall-clock-nums [num="8.5"] {--num-degree-pos: 255deg;}
+.wall-clock-nums [num="9"] {--num-degree-pos: 270deg;}
+.wall-clock-nums [num="9.5"] {--num-degree-pos: 285deg;}
+.wall-clock-nums [num="10"] {--num-degree-pos: 300deg;}
+.wall-clock-nums [num="10.5"] {--num-degree-pos: 315deg;}
+.wall-clock-nums [num="11"] {--num-degree-pos: 330deg;}
+.wall-clock-nums [num="11.5"] {--num-degree-pos: 345deg;}
+
+/* Clock hands */
+.wall-clock-hands,
+.wall-clock-hands > *,
+.wall-clock-hands > *::before {
+  position: absolute;
+  box-shadow: 0 0 var(--clock-border-width) var(--color-shadow);
+}
+.wall-clock-hands > * {
+  --hand-rotate-deg-func: 6deg; /* for second */
+  transform : rotate(calc(var(--hand-rotate-deg-func) * var(--time)));
+}
+
+.wall-clock-hands__hour::before {
+  content: '';
+  height: calc(0.3 * var(--clock-size));
+  width: calc(0.75 * var(--clock-hand-width));
+  background-color: var(--text-color);
+  border-radius: var(--clock-hand-width);
+  transform: translate(-50%, -100%);
+}
+.wall-clock-hands__minute::before {
+  content: '';
+  height: calc(0.4 * var(--clock-size));
+  width: calc(0.5 * var(--clock-hand-width));
+  background-color: var(--text-color);
+  border-radius: var(--clock-hand-width);
+  transform: translate(-50%, -100%);
+}
+.wall-clock-hands__second::before {
+  content: '';
+  height: calc(0.5 * var(--clock-size));
+  width: calc(0.25 * var(--clock-hand-width));
+  background-color: var(--clock-hand-second-color);
+  border-radius: var(--clock-hand-width);
+  transform: translate(-50%, calc(-0.43 * var(--clock-size)));
+}
+.wall-clock-hands__hour {
+  --hand-rotate-deg-func: calc(6deg / 60 / 12);
+}
+.wall-clock-hands__minute {
+  --hand-rotate-deg-func: calc(6deg / 60);
+}
+.wall-clock-hands__second {
+  --hand-rotate-deg-func: 6deg;
+}
+
+/* Animation */
+.wall-clock.animate .wall-clock-hands > * {
+  animation: clock-time calc(1s * (12 * 60 * 60)) linear infinite;
+}
+@keyframes clock-time {
+  to {
+    transform : rotate(calc(var(--hand-rotate-deg-func) * (var(--time) + (12 * 60 * 60))));
+  }
+}
+
+body{
+  --bg-color: #eee;
+  --text-color: #222;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+.darkMode-toggler {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+
+/* Theme mode */
+body[dark]{
+  --bg-color: #222;
+  --text-color: #fff;
+}
+/* [dark] .wall-clock,
+.wall-clock[dark]{
+  --color-light: #808080;
+  --color-shadow: #090909;
+} */
+</style>
+</head>
+
+<body>
+    <section class="">
+        <h1 class="text-center my-4"> Clock-1</h1>
+        <div class="wall-clock circle animate">
+            <div class="wall-clock-nums">
+              <span num="12" class="numeric"></span>
+              <span num="12.5"></span>
+              <span num="1"></span>
+              <span num="1.5"></span>
+              <span num="2"></span>
+              <span num="2.5"></span>
+              <span num="3" class="numeric"></span>
+              <span num="3.5"></span>
+              <span num="4"></span>
+              <span num="4.5"></span>
+              <span num="5"></span>
+              <span num="5.5"></span>
+              <span num="6" class="numeric"></span>
+              <span num="6.5"></span>
+              <span num="7"></span>
+              <span num="7.5"></span>
+              <span num="8"></span>
+              <span num="8.5"></span>
+              <span num="9" class="numeric"></span>
+              <span num="9.5"></span>
+              <span num="10"></span>
+              <span num="10.5"></span>
+              <span num="11"></span>
+              <span num="11.5"></span>
+            </div>
+            <div class="wall-clock-hands">
+              <span class="wall-clock-hands__hour"></span>
+              <span class="wall-clock-hands__minute"></span>
+              <span class="wall-clock-hands__second"></span>
+            </div>
+          </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <script>
+      document.addEventListener('DOMContentLoaded',() => {
+  const themeToggler = document.createElement('input');
+  themeToggler.type = 'checkbox';
+  themeToggler.title = 'Toggle dark mode';
+  themeToggler.classList.add('darkMode-toggler');
+  themeToggler.onclick = () => {
+    if (themeToggler.checked) {
+      document.body.setAttribute('dark',true);
+    } else {
+      document.body.removeAttribute('dark'); 
+    }
+  };
+  document.body.appendChild(themeToggler);
+  
+  
+  const d = new Date();
+  let h = (d.getHours()%12)*60*60; // in 12 format hours
+  let m = d.getMinutes()*60;
+  let s = d.getSeconds();
+  let time = h + m  + s; // in seconds with 12 hours format
+  document.querySelector('.wall-clock').style.setProperty('--time',time);
+});
+        </script>
+</body>
+
+</html>

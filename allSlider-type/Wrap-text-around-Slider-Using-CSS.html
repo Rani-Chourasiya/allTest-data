@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!--  -->
+    <title>Wrap text around slider using CSS - Responsive </title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"> -->
+    <!--custom style -->
+    <style>
+        
+		
+		.title{
+		font-size:2em;
+		color:#8c0c60;
+		display:block;
+		text-align:center;
+		}
+		
+		.sub-title{
+		font-size:0.8em;
+		color:gray;
+		display:block;
+		text-align:center;
+		}
+		
+		.title:before{
+		content:" ";
+		font-family:"FontAwesome";
+		font-size:30px;
+		}
+		
+		.title:after{
+		content:" ";
+		font-family:"FontAwesome";
+		font-size:30px;
+		}
+		
+		.slick{
+		width:90%;
+		margin-left:auto;
+		margin-right:auto;
+		}
+		
+		.slick table{
+		width:100%;
+		margin-left:auto;
+		margin-right:auto;
+		}
+		
+		.slick table td{
+		width:30%;
+		padding:1%;
+		}
+		
+		.slick table td ul li{
+		list-style:none;
+		padding:10px 0px;
+		}
+		
+		.slick table td ul li a{
+		text-decoration:none;
+		transition:0.5s;
+		}
+		
+		.slick table td ul li a:hover{
+		color:#8798bd;
+		}
+		
+		.slick table td ul li h3{
+		color:#8c0c3c;
+		}
+		
+		.slick table td ul li p{
+		color:rgba(1,1,1,0.7);
+		}
+		
+		.slick table td:nth-child(1) ul{
+		text-align:right;
+		}
+		
+		.slick table td:nth-child(3) ul{
+		text-align:left;
+		}
+		
+		.slick table td:nth-child(2) .card{
+		margin-left:auto;
+		margin-right:auto;
+		text-align:left;
+		}
+		
+		.slick .card {
+        position: relative;
+        width: 90%;
+        height:70vh;
+        overflow: hidden;
+        border-radius: 5px;
+       }
+
+
+       .slick .card::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 900;
+        display: block;
+        width: 100%;
+        height: 100%;
+       }
+
+      .slick .card_part {
+       position: absolute;
+       top: 0;
+       left: 0;
+       z-index: 7;
+       display: flex;
+       align-items: center;
+       width: 100%;
+       height: 100%;
+       background-size:cover;
+       transform: translateX( 700px );
+       background-image: url("https://i.ibb.co/88mwdYK/img-13.png");
+       background-repeat:no-repeat;
+       animation: opaqTransition 28s cubic-bezier(0, 0, 0, 0.97) infinite;
+       }
+
+
+      .slick .card_part.card_part-two {
+       z-index: 6;
+       background-image: url("https://i.ibb.co/88mwdYK/img-13.png");
+       animation-delay: 7s;
+       background-repeat:no-repeat;
+      }
+
+      .slick .card_part.card_part-three {
+       z-index: 5;
+       background-image: url("https://i.ibb.co/88mwdYK/img-13.png");
+       animation-delay: 14s;
+       background-repeat:no-repeat;
+       }
+
+      .slick .card_part.card_part-four {
+       z-index: 4;
+       background-image: url("https://i.ibb.co/88mwdYK/img-13.png");
+       animation-delay: 21s;
+       background-repeat:no-repeat;
+       }
+
+
+      @keyframes opaqTransition {
+       3% { transform: translateX( 0 ); }
+       25% { transform: translateX( 0 ); }
+       28% { transform: translateX( -700px ); }
+       100% { transform: translateX( -700px ); }
+       }
+       
+       
+       @media (max-width:600px){
+       .slick table td{
+       width:100%;
+       display:block;
+       }
+       .slick table td:nth-child(1) ul{
+		text-align:left;
+		}
+       }
+       
+       @media (max-width:500px){
+       .slick table td{
+       width:100%;
+       display:block;
+       }
+       .slick table td:nth-child(1) ul{
+		text-align:left;
+		}
+		.title{
+		font-size:1.3em;
+		}
+		.sub-title{
+		font-size:0.6em;
+		}
+		.slick table td ul li{
+		padding:5px 0px;
+		}
+       }
+    </style>
+</head>
+
+<body>
+    <section class="slick">
+        <span class="title">Slick Slider Section</span>
+        <span class="sub-title">Lorem ipsum dolor sit amet, consectetur adi</span>
+        <table>
+            <tr>
+                <td>
+                    <ul>
+                        <li>
+                            <h3>Heading</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                            <a href="#">Read More...</a>
+                        </li>
+                        <li>
+                            <h3>Heading</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                            <a href="#">Read More...</a>
+                        </li>
+                        <li>
+                            <h3>Heading</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                            <a href="#">Read More...</a>
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <div class="card">
+                        <div class="card_part card_part-one">
+                        </div>
+
+                        <!-- Photo 2 -->
+                        <div class="card_part card_part-two">
+                        </div>
+
+                        <!-- Photo 3 -->
+                        <div class="card_part card_part-three">
+                        </div>
+
+                        <!-- Photo 4 -->
+                        <div class="card_part card_part-four">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <ul>
+                        <li>
+                            <h3>Heading</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                            <a href="#">Read More...</a>
+                        </li>
+                        <li>
+                            <h3>Heading</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                            <a href="#">Read More...</a>
+                        </li>
+                        <li>
+                            <h3>Heading</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                            <a href="#">Read More...</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script> -->
+
+    <!-- custom script -->
+    <script>
+
+    </script>
+
+</body>
+
+</html>
