@@ -1,0 +1,228 @@
+@media only screen and (max-width: 1430px) {
+    .beauty .owl-next {
+        right: 15px;
+    }
+
+    .beauty .owl-prev {
+        left: 15px;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .container {
+        max-width: 768px;
+    }
+
+    .header-responsive-btn{
+        display: block;
+    }
+
+    .header-btn{
+        display: none;
+    }
+
+    .shop .flex-between{
+        flex-direction: column;
+    }
+
+    .shop-left, .shop-right {
+        width: 100%;
+    }
+
+    .banner-box{
+        width: 48%;
+    }
+
+    .item {
+        height: calc(100vh - 200px);
+    }
+
+    .box-ctn p {
+        margin: 160px 26px 0px 0px;
+    }
+
+    .logo {
+        font-size: 30px;
+    }
+
+    .shop-content {
+        gap: 50px;
+        padding-top: 50px;
+    }
+
+    .shop-box-img {
+        width: 225px;
+    }
+    .col p {
+        max-width: 260px;
+    }
+    nav {
+        display: block;
+        position: absolute;
+        top: 64.8px;
+        left: 0;
+        background: white;
+        height: 0;
+       overflow: auto;
+        z-index: 999;
+        width: 100%;
+        transition: 0.6s;
+    }
+    .menu li {
+        margin: 20px 15px;
+        display: block;
+    }
+    .shop-dropdown-btn, .dropdown-btn-one, .dropdown-btn {
+        position: relative;
+        padding: 0;
+    }
+    .show-nav{
+        height: 100vh;
+    }
+    .overflow-hidden{
+        overflow: hidden;
+    }
+    .shop-dropdown li:first-child {
+        padding: 10px 0;
+        font-size: 28px;
+        color: #0c0b0b;
+        font-family: 'Cormorant', serif;
+        font-weight: 400;
+        font-style: italic;
+        text-transform: capitalize;
+        white-space: nowrap;
+        letter-spacing: 1px;
+    }
+
+    .dropdown-menu {
+        position: initial;
+        padding: 0px 0;
+        top: 0px;
+        left: 0px;
+        background-color: #fff;
+        min-width: 100%;
+        opacity: 1;
+        visibility: visible;
+        overflow: auto;
+    }
+    .shop-dropdown a, .dropdown-menu a {
+        color: #000000;
+    }
+    .shop-dropdown {
+        position: initial;
+        z-index: 4;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        align-items: flex-start;
+        overflow: auto;
+        padding: 0px 0px; 
+        height: 0;
+        opacity: 1;
+        visibility: visible;
+         background: #fff;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .container {
+        max-width: 520px;
+    }
+    .top-header{
+        display: none;
+    }
+    nav{
+        top: 65px;
+    }
+    .banner-heading h1 {
+        font-size: 50px;
+    }
+
+    .banner-box {
+        width: 100%;
+    }
+
+    .box-ctn p {
+        margin: 200px 26px 0px 0px;
+    }
+    .shop-box-img {
+        width: 200px;
+    }
+    .video-img {
+        height: calc(100vh - 300px);
+    }
+    .footer .flex-between {
+        flex-direction: column;
+        align-items: center;
+        gap: 60px;
+    }
+
+    .col {
+        text-align: center;
+    }
+
+    .col p {
+        max-width: 100%;
+    }
+
+    .footer-logo {
+        padding-bottom: 60px;
+    }
+
+    .footer-menu li {
+        padding: 5px 15px;
+        display: block;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .container{
+        max-width: 320px;
+    }
+    .banner-btn {
+        font-size: 10px;
+        padding: 10px 25px;
+        margin-top: 0px;
+    }
+    .banner-heading h1 {
+        font-size: 25px;
+        line-height: 50px;
+    }
+    .item {
+        height: calc(100vh - 400px);
+    }
+
+    .box-ctn p {
+        margin: 100px 26px 0px 0px;
+    }
+    .section-heading h2 {
+        font-size: 25px;
+        line-height: 32px;
+    }
+    .section-heading span {
+        font-size: 30px;
+        line-height: 27px;
+    }
+    .section-heading p {
+        font-size: 18px;
+        line-height: 18px;
+        margin: 10px 0px;
+    }
+    .section-heading {
+        padding: 65px 0px 25px 0px;
+    }
+    .shop-content {
+        gap: 20px;
+        padding-top: 10px;
+    }
+    .shop-box-img {
+        width: 180px;
+    }
+    .video-img {
+        height: calc(100vh - 400px);
+        margin-top: 40px;
+    }
+    .footer {
+        padding: 50px 0 80px;
+    }
+    .footer-logo {
+        padding-bottom: 40px;
+    }
+}

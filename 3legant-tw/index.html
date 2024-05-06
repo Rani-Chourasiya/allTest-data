@@ -4,39 +4,590 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!--  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <!--  -->
-    <title></title>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"> -->
-    <!--custom style -->
-    <style>
-        
-    </style>
+    <title>Home 3legant.</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico.png">
+
+    <!-- stylesheet css -->
+    <link rel="stylesheet" href="./assets/css/globel.css">
+
+    <!-- Font-family poppins -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- font-familt inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- font-family Space Grotesk -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- owl-carousel -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
+    <!-- animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
 </head>
 
 <body>
-    <section class="">
-        
+    <div class="overlay"></div>
+
+    <header>
+        <div class="bottom-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="flex">
+                            <div class="menu-btn">
+                                <img src="./assets/images/menu-line-horizontal.svg" alt="">
+                            </div>
+                            <div class="header-logo">
+                                <a href="#">
+                                    <h1 class="logo">3legant.</h1>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <nav class="menu">
+                            <ul>
+                                <li><a class='active' href='/'>home</a></li>
+                                <li><a href='/shop'>shop</a></li>
+                                <li><a href='/blog'>blog</a></li>
+                                <li><a href='/contact'>contact us</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col">
+                        <ul class="all-icon d-flex align-items-center justify-content-end">
+                            <li class="search-icon icon-01">
+                                <img src="./assets/images/search 02.png" alt="">
+                            </li>
+                            <li class="user-icon icon-01">
+                               <a href='/log-in'> <img src="./assets/images/user-circle.png" alt=""></a>
+                            </li>
+                            <li class="bag-icon icon-01">
+                                <img src="./assets/images/shopping bag.png" alt="">
+                                <span id="itemCount" class="cart-count">0</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="responsive-navbar">
+            <div class="row">
+                <div class="header-logo">
+                    <a href="#">
+                        <h1 class="logo">3legant.</h1>
+                        <div class="x-icon">
+                            <img src="./assets/images/Line.svg" alt="">
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="search-1">
+                    <input type="search" placeholder="Search">
+                    <img src="./assets/images/search 02.png" class="search-icon1" alt="">
+                </div>
+            </div>
+            <div class="flex-col">
+                <nav class="responsive-nav">
+                    <ul>
+                        <li><a href='/'>home</a></li>
+                        <li><a href='/shop'>shop <img src="./assets/images/chevron-down.svg" alt=""></a></li>
+                        <li><a href='/blog'>blog <img src="./assets/images/chevron-down.svg" alt=""></a></li>
+                        <li><a href='/contact'>contact us</a></li>
+                    </ul>
+                </nav>
+                <div class="nav-botm">
+                    <ul>
+                        <li><a href="#">cart <img src="./assets/images/shopping bag.png" alt=""></a></li>
+                        <li><a href="#">wishlist <img src="./assets/images/heart.svg" alt=""></a></li>
+                    </ul>
+
+                    <a href='/log-in'><button class="btn-one">login</button></a>
+
+                    <div class="nav-social">
+                        <ul>
+                            <li><a href="#">
+                                    <img src="./assets/images/black-insta.svg" alt="">
+                                </a></li>
+                            <li><a href="#">
+                                    <img src="./assets/images/black-fb.svg" alt="">
+                                </a></li>
+                            <li><a href="#">
+                                    <img src="./assets/images/black-yt.svg" alt="">
+                                </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cart-slide">
+            <div class="cart-fill">
+                <div class="row">
+                    <div class="col">
+                        <div class="cart-heading">
+                            <h2>Cart</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                </div>
+
+                <div class="product-in-cart">
+
+                </div>
+
+                <div class="botm-cart">
+                    <div class="row">
+                        <div class="col-6">
+                            <h2>subtotal</h2>
+                        </div>
+                        <div class="col-6">
+                            <span class="pr-st-amt"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>total</h3>
+                        </div>
+                        <div class="col-6">
+                            <span class="product-total"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="cart-btn">
+                                <button class="btn-one">Chekout</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="page-link cart-page mt-3 text-center">
+                            <a href="./cart.html">view cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="owl-carousel banner-slider">
+                        <div class="slider-item">
+                            <img src="./assets/images/Paste image.png" alt="">
+                        </div>
+                        <div class="slider-item">
+                            <img src="./assets/images/living-room-mid-century-style-with-warm-colors-ai-generative.jpg" alt="">
+                        </div>
+                        <div class="slider-item">
+                            <img src="./assets/images/mid-century-modern-living-room-interior-design-with-monstera-tree.jpg" alt="">
+                        </div>
+                        <div class="slider-item">
+                            <img src="./assets/images/modern-hotel-room-with-illuminated-pictures.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-md-4 my-3 align-items-center">
+                <div class=" col-md-8 col-12">
+                    <div class="banner-heading">
+                        <h1>simply unique<span>/</span> <br>
+                            simply <span class="typewriter nocaret"></span><span>.</span></h1>
+
+                    </div>
+                </div>
+                <div class="col-md-4 col-12">
+                    <div class="banner-para">
+                        <p><span>3legant</span> is gift & decorations store based in HCMC, Vientam. Est since 2019.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    <section class="shop my-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="shop-ctn mb-sm-0 mb-3">
+                        <div class="shop-txt txt-0">
+                            <h3>living room</h3>
+                            <span><a href='/shop'>shop now <img src="./assets/images/arrow-right.svg" alt=""> </a></span>
+                        </div>
+                        <a href='/shop'> <img src="./assets/images/living-room.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-sm-6 d-flex flex-column justify-content-between">
+                    <div class="shop-ctn mb-sm-0 mb-3">
+                        <div class="shop-txt txt-1">
+                            <h3>bedroom</h3>
+                            <span><a href='/shop'>shop now <img src="./assets/images/arrow-right.svg" alt=""> </a></span>
+                        </div>
+                        <a href='/shop'> <img src="./assets/images/bedroom.png" alt=""></a>
+                    </div>
+
+                    <div class="shop-ctn mb-sm-0 mb-3">
+                        <div class="shop-txt txt-1">
+                            <h3>kitchen</h3>
+                            <span><a href='/shop'>shop now <img src="./assets/images/arrow-right.svg" alt=""> </a></span>
+                        </div>
+                        <a href='/shop'> <img src="./assets/images/kitchen.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="product">
+        <div class="container">
+            <div class="row my-xl-5 my-lg-4 my-3">
+                <div class="col">
+                    <div class="product-heading">
+                        <h3>new <br> arrivals</h3>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="product-page-dtl">
+                        <span><a href='/shop'>more product<img src="./assets/images/arrow-right.svg" alt="">
+                            </a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="owl-carousel product-slider">
+                    <div class="product-item">
+                        <div class="product-img">
+                            <img src="./assets/images/sofa.png" alt="">
+                            <div class="discount">
+                                <h4>new</h4>
+                                <br>
+                                <h5>-50%</h5>
+                            </div>
+                            <div class="wishlist">
+                                <img src="./assets/images/wishlist-heart.png" alt="">
+                            </div>
+                            <div class="add-cart">
+                                <button class="btn-one add-item-btn">Add to cart</button>
+                            </div>
+                        </div>
+                        <div class="product-ctn">
+                            <div class="rating">
+                                <img src="./assets/images/rating-starr.png" alt="">
+                            </div>
+                            <div class="product-name">
+                                <h3>loveseat sofa</h3>
+                            </div>
+                            <div class="product-amt"><span>$199.00 <del>$400.00</del></span></div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-img">
+                            <img src="./assets/images/table-lamp.png" alt="">
+                            <div class="discount">
+                                <h4>new</h4>
+                                <br>
+                                <h5>-50%</h5>
+                            </div>
+                            <div class="wishlist">
+                                <img src="./assets/images/wishlist-heart.png" alt="">
+                            </div>
+                            <div class="add-cart">
+                                <button class="btn-one  add-item-btn">Add to cart</button>
+                            </div>
+                        </div>
+                        <div class="product-ctn">
+                            <div class="rating">
+                                <img src="./assets/images/rating-starr.png" alt="">
+                            </div>
+                            <div class="product-name">
+                                <h3>table lamp</h3>
+                            </div>
+                            <div class="product-amt"><span>$24.99</span></div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-img">
+                            <img src="./assets/images/big-table-lamp.png" alt="">
+                            <div class="discount">
+                                <h4>new</h4>
+                                <br>
+                                <h5>-50%</h5>
+                            </div>
+                            <div class="wishlist">
+                                <img src="./assets/images/wishlist-heart.png" alt="">
+                            </div>
+                            <div class="add-cart">
+                                <button class="btn-one  add-item-btn">Add to cart</button>
+                            </div>
+                        </div>
+                        <div class="product-ctn">
+                            <div class="rating">
+                                <img src="./assets/images/rating-starr.png" alt="">
+                            </div>
+                            <div class="product-name">
+                                <h3>Beige table lamp</h3>
+                            </div>
+                            <div class="product-amt"><span>$199.00 <del>$400.00</del></span></div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-img">
+                            <img src="./assets/images/bamboo-basket.png" alt="">
+                            <div class="discount">
+                                <h4>new</h4>
+                                <br>
+                                <h5>-50%</h5>
+                            </div>
+                            <div class="wishlist">
+                                <img src="./assets/images/wishlist-heart.png" alt="">
+                            </div>
+                            <div class="add-cart">
+                                <button class="btn-one  add-item-btn">Add to cart</button>
+                            </div>
+                        </div>
+                        <div class="product-ctn">
+                            <div class="rating">
+                                <img src="./assets/images/rating-starr.png" alt="">
+                            </div>
+                            <div class="product-name">
+                                <h3>bamboo basket</h3>
+                            </div>
+                            <div class="product-amt"><span>$24.99</span></div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-img">
+                            <img src="./assets/images/table-lamp.png" alt="">
+                            <div class="discount">
+                                <h4>new</h4>
+                                <br>
+                                <h5>-50%</h5>
+                            </div>
+                            <div class="wishlist">
+                                <img src="./assets/images/wishlist-heart.png" alt="">
+                            </div>
+                            <div class="add-cart">
+                                <button class="btn-one  add-item-btn">Add to cart</button>
+                            </div>
+                        </div>
+                        <div class="product-ctn">
+                            <div class="rating">
+                                <img src="./assets/images/rating-starr.png" alt="">
+                            </div>
+                            <div class="product-name">
+                                <h3>table lamp</h3>
+                            </div>
+                            <div class="product-amt"><span>$24.99</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-lg-5 my-3 values">
+                <div class="col-xl col-6">
+                    <div class="card-1">
+                        <img src="./assets/images/fast delivery.svg" alt="">
+                        <h6>Free Shipping</h6>
+                        <p>Order above $200</p>
+                    </div>
+                </div>
+                <div class="col-xl col-6">
+                    <div class="card-1">
+                        <img src="./assets/images/money.svg" alt="">
+                        <h6>Money-back</h6>
+                        <p>30 days guarantee</p>
+                    </div>
+                </div>
+                <div class="col-xl col-6">
+                    <div class="card-1">
+                        <img src="./assets/images/lock 01.svg" alt="">
+                        <h6>Secure Payments</h6>
+                        <p>Secured by Stripe</p>
+                    </div>
+                </div>
+                <div class="col-xl col-6">
+                    <div class="card-1">
+                        <img src="./assets/images/call.svg" alt="">
+                        <h6>24/7 Support</h6>
+                        <p>Phone and Email support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="shop-banner py-1">
+        <div class="container-fluid">
+            <div class="row my-lg-5 my-3">
+                <div class="col-sm">
+                    <img src="./assets/images/Image Placeholder.png" alt="">
+                </div>
+                <div class="col-sm">
+                    <div class="shop-banner-content">
+                        <span>SALE UP TO 35% OFF</span>
+                        <h3>HUNDREDS of New lower prices!</h3>
+                        <p>It’s more affordable than ever to give every room in your home a stylish makeover</p>
+                        <div class="product-page-dtl">
+                            <span><a href='/shop'>shop now<img src="./assets/images/arrow-right.svg" alt=""> </a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="articles">
+        <div class="container">
+            <div class="row my-lg-5 my-3">
+                <div class="col">
+                    <div class="product-heading">
+                        <h3>articles</h3>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="product-page-dtl">
+                        <span><a href='/blog'>more artcles<img src="./assets/images/arrow-right.svg" alt=""> </a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-lg-5 my-3">
+                <div class="col-xl-3 col-6">
+                    <div class="latest-article">
+                        <img src="./assets/images/article-1.png" alt="">
+                        <div class="article-content">
+                            <h3>7 ways to decor your home <a href="#"> read more..... </a></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-6">
+                    <div class="latest-article">
+                        <img src="./assets/images/article-2.png" alt="">
+                        <div class="article-content">
+                            <h3>Kitchen organization<a href="#"> read more.....</a></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-6">
+                    <div class="latest-article">
+                        <img src="./assets/images/article-3.png" alt="">
+                        <div class="article-content">
+                            <h3>Decor your bedroom <a href="#"> read more.....</a></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-6">
+                        <div class="latest-article">
+                            <img src="./assets/images/article-4.png" alt="">
+                            <div class="article-content">
+                                <h3>Modern texas home  <a href="#"> read more.....</a></h3>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter pt-lg-5 pt-3 ">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="news-content">
+                    <h2>join our newsletter</h2>
+                    <p>Sign up for deals, new products and promotions</p>
+                    <form action="">
+                        <div class="email">
+                            <input type="email" name="" placeholder="Email address">
+                            <button class="singup-btn">Singup</button>
+                            <img src="./assets/images/email.svg" alt="">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-4 text-md-start text-center">
+                    <ul class="footer-logo">
+                        <li><a href="#">
+                                <h1 class="logo">3legant.</h1>
+                            </a></li>
+                        <li><span>|</span></li>
+                        <li>
+                            <p>Gift & Decoration Store</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-8 text-md-end text-center">
+                    <ul class="footer-menu">
+                        <li><a href="#">home</a></li>
+                        <li><a href="#">shop</a></li>
+                        <li><a href="#">product</a></li>
+                        <li><a href="#">blog</a></li>
+                        <li><a href="#">contact us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row py-4 btg flex-md-row flex-column-reverse">
+                <div class="col-md-10 text-md-start text-center">
+                    <ul class="pvc d-flex flex-md-row flex-column-reverse">
+                        <li>
+                            <p>Copyright © 2023 3legant. All rights reserved</p>
+                        </li>
+                        <div class="d-flex justify-content-center gap-4 my-md-0 my-3">
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Use</a></li>
+                        </div>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <ul class="footer-social d-flex justify-content-md-end justify-content-center gap-3">
+                        <li><a href="#"><img src="./assets/images/instagram.svg" alt=""></i></a></li>
+                        <li><a href="#"><img src="./assets/images/facebook.svg" alt=""></a></li>
+                        <li><a href="#"><img src="./assets/images/youtube.svg" alt=""></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Jquery link -->
+    <script src="./assets/js/jquery-3.7.1.min.js"></script>
+
+    <!-- OwlCarousel link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <!-- bootstrap-js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script> -->
 
-    <!-- custom script -->
-    <script>
-
-    </script>
+    <!-- Main js -->
+    <script src="./assets/js/main.js"></script>
 
 </body>
 

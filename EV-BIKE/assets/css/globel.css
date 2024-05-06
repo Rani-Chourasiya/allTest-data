@@ -1,0 +1,46 @@
+@import url(./style.css);
+@import url(./responsive.css);
+
+body{
+    margin: 0%;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+    background: radial-gradient(243.55% 153.69% at 23.48% -1.07%, #EBF3F5 10.46%, #C5E2F0 100%);
+    border-radius: 33px;
+    /* position: relative; */
+    /* overflow: hidden; */
+}
+
+*{
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+    padding: 0%;
+    margin: 0%;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+li{
+    list-style-type: none;
+    display: inline-block;
+}
+
+img{
+    width: 100%;
+}
+
+section{
+    overflow: hidden;
+}
