@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!--  -->
+    <title>Responsive Owl Carousel Slider</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <style>
+        .parent {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .carousel {
+            max-width: 80%;
+        }
+
+        .slide {
+            max-height: 250px;
+        }
+
+        .box-slide {
+            width: 100%;
+            background-color: #EAE8E8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 250px;
+        }
+
+        .aboutImageSlide {
+            width: 100%;
+            height: 250px;
+        }
+
+        .owl-carousel .owl-dots.disabled,
+        .owl-carousel .owl-nav.disabled {
+            /* font-size: 50px; */
+            display: block;
+        }
+
+        .owl-nav .owl-prev {
+            left: 0;
+            color: #fff !important;
+            margin: 20px !important;
+            padding: 15px !important;
+            background: #000 !important;
+        }
+
+        .owl-nav .owl-next {
+            right: 0;
+            color: #fff !important;
+            margin: 20px !important;
+            padding: 15px !important;
+            background: #000 !important;
+        }
+
+        .owl-nav span {
+            padding: 25px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="carousel">
+            <div class="owl-carousel ">
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1700493624764-f7524969037d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="ourMission" class="aboutImageSlide">
+                </div>
+                <div class="slide">
+                    <div class="box-slide">
+                        <h3 class="aboutBlockTitle">Our Mission</h3>
+                        <p class="aboutBlockText">To deliver a positive and reliable experience to every customer</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1700493624764-f7524969037d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="ourPromise" class="aboutImageSlide">
+                </div>
+                <div class="slide">
+                    <div class="box-slide">
+                        <h3 class="aboutBlockTitle">Our Promise</h3>
+                        <p class="aboutBlockText">To exceed our customers’ expectations by always bringing quality
+                            service</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1700493624764-f7524969037d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="ourVibe" class="aboutImageSlide">
+                </div>
+                <div class="slide">
+                    <div class="box-slide">
+                        <h3 class="aboutBlockTitle">Our Vibe</h3>
+                        <p class="aboutBlockText">We dream it, and then do it—together—reinventing what’s possible</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 15,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                640: {
+                    items: 2
+                },
+                795: {
+                    items: 3
+                },
+                1000: {
+                    items: 3
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
