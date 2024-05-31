@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!--  -->
+    <title>Advent calender section</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Kalnia:wght@400;500&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100svh;
+  background: #1f2c3a;
+  font-family: "Kalnia", serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+img {
+  width: clamp(80px, 40vw, 100px);
+  height: clamp(80px, 40vw, 100px);
+  object-fit: contain;
+}
+
+header {
+  background: radial-gradient(ellipse farthest-corner at right bottom, #fedb37 0%, #fdb931 8%, #9f7928 30%, #8a6e2f 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #ffffff 0%, #ffffac 8%, #d1b464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2em;
+  text-align: center;
+}
+header h1 {
+  text-transform: capitalize;
+  font-size: clamp(1.5625rem, 1.3636rem + 0.9091vw, 2.5rem);
+  letter-spacing: 0.25rem;
+  font-weight: 500;
+}
+header p {
+  text-transform: uppercase;
+  font-size: clamp(1rem, 0.947rem + 0.2424vw, 1.25rem);
+  letter-spacing: 0.15rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+}
+header p span {
+  width: 0.313rem;
+  height: 0.313rem;
+  background: radial-gradient(ellipse farthest-corner at right bottom, #fedb37 0%, #fdb931 8%, #9f7928 30%, #8a6e2f 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #ffffff 0%, #ffffac 8%, #d1b464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+  border-radius: 50%;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-inline: auto;
+  gap: 0.938rem;
+  position: relative;
+  z-index: 10;
+  padding: 3rem clamp(1rem, 5%, 3rem);
+}
+section .row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.938rem;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+@media screen and (min-width: 25rem) {
+  section .row {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+@media screen and (min-width: 37.5rem) {
+  section .row {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+@media screen and (min-width: 56.25rem) {
+  section .row {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+section .card {
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
+  display: grid;
+  place-content: center;
+  place-items: center;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  background: radial-gradient(ellipse farthest-corner at right bottom, #fedb37 0%, #fdb931 8%, #9f7928 30%, #8a6e2f 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #ffffff 0%, #ffffac 8%, #d1b464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+  grid-column: span 2;
+}
+@media screen and (min-width: 25rem) {
+  section .card {
+    padding: 2rem;
+  }
+}
+@media screen and (min-width: 56.25rem) {
+  section .card {
+    grid-column: span 1;
+  }
+}
+section .card:nth-child(2), section .card:nth-child(4), section .card:nth-child(6), section .card:nth-child(7), section .card:nth-child(9), section .card:nth-child(11), section .card:nth-child(14), section .card:nth-child(16), section .card:nth-child(18), section .card:nth-child(19), section .card:nth-child(21), section .card:nth-child(23), section .card:last-child {
+  background: radial-gradient(circle, black 0%, #2b2b2b00 100%), url("https://cdn.pixabay.com/photo/2018/07/25/16/00/art-3561710_1280.jpg") no-repeat 50% 50%/cover;
+}
+section .card:nth-child(2) h2,
+section .card:nth-child(2) .day, section .card:nth-child(4) h2,
+section .card:nth-child(4) .day, section .card:nth-child(6) h2,
+section .card:nth-child(6) .day, section .card:nth-child(7) h2,
+section .card:nth-child(7) .day, section .card:nth-child(9) h2,
+section .card:nth-child(9) .day, section .card:nth-child(11) h2,
+section .card:nth-child(11) .day, section .card:nth-child(14) h2,
+section .card:nth-child(14) .day, section .card:nth-child(16) h2,
+section .card:nth-child(16) .day, section .card:nth-child(18) h2,
+section .card:nth-child(18) .day, section .card:nth-child(19) h2,
+section .card:nth-child(19) .day, section .card:nth-child(21) h2,
+section .card:nth-child(21) .day, section .card:nth-child(23) h2,
+section .card:nth-child(23) .day, section .card:last-child h2,
+section .card:last-child .day {
+  background: radial-gradient(ellipse farthest-corner at right bottom, #fedb37 0%, #fdb931 8%, #9f7928 30%, #8a6e2f 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #ffffff 0%, #ffffac 8%, #d1b464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+section .card:last-child {
+  grid-column: 1/-1;
+  aspect-ratio: 3/2;
+}
+@media screen and (min-width: 900px) {
+  section .card:last-child {
+    grid-column: span 3/-1;
+    grid-row: 4/span 2;
+  }
+}
+section .card:last-child h2 {
+  font-size: clamp(2rem, 1.5758rem + 1.9394vw, 4rem);
+  font-weight: 500;
+}
+section .card:last-child .day {
+  font-size: clamp(4rem, 2.7273rem + 5.8182vw, 10rem);
+}
+section .card:last-child q {
+  font-size: 1rem;
+}
+@media screen and (min-width: 900px) {
+  section .card:last-child q {
+    font-size: 2rem;
+  }
+}
+section .card:last-child .author {
+  font-size: 1rem;
+}
+@media screen and (min-width: 900px) {
+  section .card:last-child .author {
+    font-size: 1.6rem;
+  }
+}
+section .card__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: grid;
+  place-content: center;
+}
+section .card__face--front span {
+  color: #111;
+  font-size: clamp(1.875rem, 1.3447rem + 2.4242vw, 4.375rem);
+  font-weight: 400;
+}
+section .card__face--back {
+  background: #080808;
+  transform: rotateY(180deg);
+  padding: 0.625em;
+}
+section .card__face--back q {
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+@media screen and (min-width: 1200px) {
+  section .card__face--back q {
+    font-size: 0.875rem;
+  }
+}
+section .card__face--back .author {
+  background: radial-gradient(ellipse farthest-corner at right bottom, #fedb37 0%, #fdb931 8%, #9f7928 30%, #8a6e2f 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #ffffff 0%, #ffffac 8%, #d1b464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 400;
+  display: block;
+  margin-top: 1.25em;
+  font-size: 0.7rem;
+}
+@media screen and (min-width: 75rem) {
+  section .card__face--back .author {
+    font-size: 1rem;
+  }
+}
+section .card.is-flipped {
+  transform: rotateY(-180deg);
+}
+    </style>
+</head>
+<body>
+    <main class="all-content">
+        <section>
+            <header>
+              <h1>christmas advent</h1>
+              <p><span></span>quotes calendar<span></span></p>
+            </header>
+            <div class="row"></div>
+          </section>
+    </main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+const days = [
+  {
+    quote: "A room without books is like a body without a soul.",
+    author: "Marcus Tullius Cicero"
+  },
+  {
+    quote: "You only live once, but if you do it right, once is enough.",
+    author: "Mae West"
+  },
+  {
+    quote: "If you tell the truth, you don't have to remember anything.",
+    author: "Mark Twain"
+  },
+  {
+    quote:
+      "To live is the rarest thing in the world. Most people exist, that is all.",
+    author: "Oscar Wilde"
+  },
+  {
+    quote:
+      "Live as if you were to die tomorrow. Learn as if you were to live forever.",
+    author: "Mahatma Gandhi"
+  },
+  {
+    quote:
+      "It is better to be hated for what you are than to be loved for what you are not.",
+    author: "Andre Gide"
+  },
+  { quote: "Not all those who wander are lost.", author: "J.R.R. Tolkien" },
+  {
+    quote: "Always forgive your enemies; nothing annoys them so much.",
+    author: "Oscar Wilde"
+  },
+  {
+    quote: "Without music, life would be a mistake.",
+    author: "Friedrich Nietzsche"
+  },
+  {
+    quote:
+      "Good friends, good books, and a sleepy conscience: this is the ideal life.",
+    author: "Mark Twain"
+  },
+  {
+    quote:
+      "The fool doth think he is wise, but the wise man knows himself to be a fool.",
+    author: "William Shakespeare"
+  },
+  {
+    quote: "I have not failed. I've just found 10,000 ways that won't work.",
+    author: "Thomas A. Edison"
+  },
+  {
+    quote: "If you don't stand for something you will fall for anything.",
+    author: "Gordon A. Eadie"
+  },
+  {
+    quote:
+      "I like nonsense, it wakes up the brain cells. Fantasy is a necessary ingredient in living.",
+    author: "Dr. Seuss"
+  },
+  {
+    quote:
+      "For every minute you are angry you lose sixty seconds of happiness.",
+    author: "Ralph Waldo Emerson"
+  },
+  {
+    quote: "If you judge people, you have no time to love them.",
+    author: "Mother Teresa"
+  },
+  { quote: "Everything you can imagine is real.", author: "Pablo Picasso" },
+  {
+    quote:
+      "I'm not afraid of death; I just don't want to be there when it happens.",
+    author: "Woody Allen"
+  },
+  {
+    quote: "Do what you can, with what you have, where you are.",
+    author: "Pablo Picasso"
+  },
+  {
+    quote: "Everything you can imagine is real.",
+    author: "Theodore Roosevelt"
+  },
+  {
+    quote: "There is no friend as loyal as a book.",
+    author: "Ernest Hemingway"
+  },
+  {
+    quote:
+      "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+    author: "Winston S. Churchill"
+  },
+  {
+    quote:
+      "Life is like riding a bicycle. To keep your balance, you must keep moving.",
+    author: "Albert Einstein"
+  },
+  {
+    quote:
+      "Not all of us can do great things. But we can do small things with great love.",
+    author: "Mother Teresa"
+  },
+  {
+    quote:
+      "There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle.",
+    author: "Albert Einstein"
+  }
+];
+
+let text = "";
+for (let i = 1; i <= 25; i++) {
+  if (i === 25) {
+    text += `<div class="card">
+    <div class="card__face card__face--front"><h2>Merry Xmas!</h2><span class="day">${i}</span></div>
+    <div class="card__face card__face--back"><q>${
+      days[i - 1]?.quote
+    }</q><span class="author">${days[i - 1]?.author}</span></div>
+  </div>`;
+  } else {
+    text += `<div class="card">
+    <div class="card__face card__face--front"><span class="day">${i}</span></div>
+    <div class="card__face card__face--back"><q>${
+      days[i - 1]?.quote
+    }</q><span class="author">${days[i - 1]?.author}</span></div>
+  </div>`;
+  }
+}
+
+document.querySelector(".row").innerHTML = text;
+
+var cards = document.querySelectorAll(".card");
+
+[...cards].forEach((card) => {
+  card.addEventListener("click", function () {
+    card.classList.toggle("is-flipped");
+  });
+});
+
+</script>
+ 
+</body>
+</html>
