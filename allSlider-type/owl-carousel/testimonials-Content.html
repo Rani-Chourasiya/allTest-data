@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    <!--  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!--  -->
+    <link rel="stylesheet" href="assets/stylesheet.css">
+    <title>Testimonial Content</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <style>
+        /* testimonial-section */
+
+        .testimonial-section {
+            text-align: center;
+        }
+
+        .each-testi p {
+            margin-bottom: 35px;
+        }
+
+        .each-testi p,
+        .each-testi h6 {
+            font-size: 18px;
+            line-height: 24px;
+            font-weight: 300;
+        }
+
+        .testimonial-section .btn-green {
+            padding: 15px 75px;
+        }
+
+        .testimonial-section .owl-theme .owl-dots,
+        .testimonial-section .global-content {
+            margin-bottom: 20px;
+        }
+
+        .testimonial-section .owl-theme .owl-dots .owl-dot:focus {
+            outline: 0;
+        }
+
+        .testimonial-section .owl-theme .owl-dots .owl-dot span {
+            width: 40px;
+            height: 4px;
+            border-radius: 0;
+            background: #cccccc;
+        }
+
+        .testimonial-section .owl-theme .owl-dots .owl-dot.active span,
+        .testimonial-section .owl-theme .owl-dots .owl-dot:hover span {
+            background: #0f1f93;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- testimonial-sectin -->
+    <section id="testimonial">
+        <div class="container">
+            <div class="testimonial-section" data-aos="zoom-in">
+                <div class="owl-carousel owl-theme">
+                    <div class="each-testi global-content">
+                        <p>
+                            "The greatest glory in living lies not in never falling, but in rising every time we fall."
+                        </p>
+                        <h6>-Nelson Mandela</h6>
+                    </div>
+                    <div class="each-testi global-content">
+                        <p>
+                            "Your time is limited, so don't waste it living someone else's life. Don't be trapped by
+                            dogma – which is living with the results of other people's thinking."
+                        </p>
+                        <h6>-Steve Jobs</h6>
+                    </div>
+                    <div class="each-testi global-content">
+                        <p>
+                            "The way to get started is to quit talking and begin doing."
+                        </p>
+                        <h6>-Walt Disney</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /testimonial-sectin -->
+    </main>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        //testimonial
+        $('#testimonial .owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: false,
+            dots: true,
+            autoplay: true,
+            autoplayHoverPause: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 1
+                },
+                1000: {
+                    items: 1
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
