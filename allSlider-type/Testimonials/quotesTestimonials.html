@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews / Testimonials / Quotes / Info With Carousel / Slider</title>
+    
+<link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet" />
+
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'> 
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+ <style>
+    *{
+	margin:0;
+	padding:0;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-o-user-select:none;
+	user-drag:none;
+	box-sizing:border-box!important;
+}
+
+body{
+		font-family: Roboto, Sans-serif;
+	}
+
+#container{
+	width:100%;
+	min-height: 500px;
+	height:100vh;
+	position: relative;
+	background: #e2e2e2;
+	overflow: visible;
+}
+#holder{
+	max-width: 700px;
+	width: 98%;
+	min-height: 360px;
+	height:360px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+#image{
+	width: 40%;
+	height: 100%;
+	float: left;
+	position: relative;
+	z-index: 200;
+	/* background:; */
+	box-shadow:0px 40px 120px 0px rgba(0,0,0,.52);
+	overflow: visible;
+}
+#right{
+	width: 60%;
+	height: 100%;
+	float: right;
+	position: relative;
+}
+#text{
+	width: 60%;
+	height: 320px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	z-index: 100;
+	background: rgba(255,255,255,.57);
+	box-shadow:0px 40px 120px 0px rgba(0,0,0,.52);
+}
+a{
+	display: block;
+	text-decoration: none;
+	outline: none;
+	outline-color: none;
+
+}
+nav{
+	width: 140px;
+	height: 50px;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	margin:0 0 -25px -70px;
+	z-index: 1000;
+	box-shadow:0px 7px 24px 3px rgba(0,0,0,.52);
+  display:none;
+}
+#leftBtn{
+	width:50%;
+	height: 100%;
+	float: left;
+	color: rgba(255,255,255,.57);
+	background:#232323;
+	font-size: 25px;
+	line-height: 200%;
+	text-align: center;
+	border-right:1px solid rgba(255,255,255,.57);
+	cursor: pointer;
+	-webkit-transition:all .3s ease-in;
+	-moz-transition:all .3s ease-in;
+	-o-transition:all .3s ease-in;
+	transition:all .3s ease-in;
+}
+#rightBtn{
+	width:50%;
+	height: 100%;
+	float: right;
+	color: rgba(255,255,255,.57);
+	background:#232323;
+	font-size: 25px;
+	line-height: 200%;
+	text-align: center;
+	border-left:1px solid rgba(255,255,255,.57);
+	cursor: pointer;
+	-webkit-transition:all .3s ease-in;
+	-moz-transition:all .3s ease-in;
+	-o-transition:all .3s ease-in;
+	transition:all .3s ease-in;
+}
+#leftBtn:hover,#rightBtn:hover{
+	color: #fff;
+}
+#nav-cirlces{
+	width: 96px;
+	height: 20px;
+	position: absolute;
+	bottom: 8%;
+	left: 50%;
+	margin-left: -50px;
+}
+.circle{
+	width: 20px;
+	height: 100%;
+	float: left;
+	border-radius:100%;
+	border:2px solid #232323;
+	margin:0 6px;
+	cursor: pointer;
+	-webkit-transition:all .75s  cubic-bezier(.86,.3,.07,1);
+	-moz-transition:all .75s  cubic-bezier(.86,.3,.07,1);
+	-o-transition:all .75s  cubic-bezier(.86,.3,.07,1);
+	transition:all .75s  cubic-bezier(.86,.3,.07,1);
+}
+#centerText{
+	width: 100%;
+	height:200px;
+	position: absolute;
+	top: 20%;
+	margin-top:-100px;
+	padding: 10px 0;
+	overflow: visible;
+}
+p{	
+	width: 100%;
+	height: 150px;
+	position: absolute;
+	top: 45px;
+	left: 0;
+	right: -150px;
+	bottom: 0;
+	margin: auto;	
+	font-size: 20px;
+	color: #232323;
+	padding: 0 25px;
+	text-align:center;
+	opacity: 0;
+	-webkit-transition:all 2s  cubic-bezier(.86,.3,.03,1) , opacity .7s cubic-bezier(.86,.3,.47,1) .3s;
+	-moz-transition:all 2s  cubic-bezier(.86,.3,.03,1) , opacity .7s cubic-bezier(.86,.3,.47,1) .3s;
+	-o-transition:all 2s  cubic-bezier(.86,.3,.03,1) , opacity .7s cubic-bezier(.86,.3,.47,1) .3s;
+	transition:all 2s  cubic-bezier(.86,.3,.03,1) , opacity .7s cubic-bezier(.86,.3,.47,1) .3s;
+}
+p.quote.active{
+	right:0;
+	opacity: 1;
+	background: transparent;
+}
+p.quote:nth-child(2){
+	top: 25px;
+}
+.active{
+	background: #232323;
+}
+.img{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	right: -100%;
+	background-position: center !important;
+	background-size:cover;	
+	background-repeat: no-repeat;
+	opacity: 0;
+	z-index: 400;
+	-webkit-transition:all 2s  cubic-bezier(.86,.3,.03,1) , opacity .7s cubic-bezier(.86,.3,.47,1) .3s;
+	-moz-transition:all 2s  cubic-bezier(.86,.3,.03,1) , opacity .7s cubic-bezier(.86,.3,.47,1) .3s;
+	-o-transition:all 2s  cubic-bezier(.86,.3,.03,1) , opacity .7s cubic-bezier(.86,.3,.47,1) .3s;
+	transition:all 2s  cubic-bezier(.86,.3,.03,1) , opacity .7s cubic-bezier(.86,.3,.47,1) .3s;
+}
+.img.active{
+	right:0;
+	opacity: 1;
+	z-index: 500;
+}
+.jobs{
+	background: #fff url(https://raw.githubusercontent.com/hemantparashar/images/quote-cards/stevejobs-s.jpg);
+}
+.zuck{
+	background: #fff url(https://raw.githubusercontent.com/hemantparashar/images/quote-cards/markzuck-s.jpg);
+}
+.musk{
+	background: #fff url(https://raw.githubusercontent.com/hemantparashar/images/quote-cards/elonmusk-s.jpg);
+}
+
+#bg{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+.slide{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	/*right: -100%;*/
+	opacity: 0;	
+	-webkit-transition:all 1.5s ease;
+	-moz-transition:all 1.5s ease;
+	-o-transition:all 1.5s ease;
+	transition:all 1.5s ease;	
+}
+.slide.active{
+	/*right: 0%;*/
+	opacity: 1;
+}
+.jobs-bg{
+	background: #fff url(https://raw.githubusercontent.com/hemantparashar/images/quote-cards/stevejobs-bg.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.zuck-bg{
+	background: #fff url(https://raw.githubusercontent.com/hemantparashar/images/quote-cards/markzuck-bg.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.musk-bg{
+	background: #fff url(https://raw.githubusercontent.com/hemantparashar/images/quote-cards/elonmusk-bg.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+@media screen and (max-width:700px){
+
+	#centerText p{
+		font-size: 20px;
+	}
+}
+
+@media screen and (max-width:580px){
+
+#holder{
+	max-width: 700px;
+	width: 100%;
+	min-height: 360px;
+	height:100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: red;
+	margin: auto;
+}
+.img{
+	background-position:top center !important;
+}
+#image{
+	width: 220px;
+	height:250px;
+	float: left;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -280px;
+	margin-left: -110px;
+}
+#right{
+	width: 100%;
+	height: 100%;
+	float: right;
+	position: relative;
+	background: blue;
+}
+#text{
+	width: 90%;
+	height: 320px;
+	position: absolute;
+	top: 150px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+#nav-cirlces{
+	display: none;
+}
+#centerText{
+	width: 100%;
+	height:200px;
+	position: absolute;
+	top: 30%;
+	margin-top:-100px;
+	padding: 150px 0!important;
+	overflow: visible;
+}
+
+}
+
+@media screen and (max-width:450px){
+#image{
+	width: 200px;
+	height:230px;
+	float: left;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -250px;
+	margin-left: -100px;
+}
+
+#text{
+	width: 100%;
+	height: 320px;
+	position: absolute;
+	top: 150px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+#nav-cirlces{
+	display: none;
+}
+#centerText{
+	width: 100%;
+	height:200px;
+	position: absolute;
+	top: 30%;
+	margin-top:-100px;
+	padding: 120px 0!important;
+	overflow: visible;
+}
+
+}
+ </style>
+</head>
+<body>
+    
+<div id="container">
+
+    <div id="holder">
+  
+      <div id="image">
+        <div class="img jobs"></div>
+        <div class="img zuck"></div>
+        <div class="img musk"></div>
+      </div>
+  
+      <div id="right"></div>
+  
+      <div id="text">
+        <div id="centerText">
+          <p class="quote">
+            <i class='fa fa-quote-left' style='font-size:30px;color:blue'></i> CodePen is a social development environment. At its heart, it allows you to write code in the browser, and see the results of it as you build. A useful and liberating online code editor for developers of any skill, and particularly empowering for people learning to code. We focus primarily on front-end languages like HTML, CSS, JavaScript, and preprocessing syntaxes that turn into those things. <i class='fa fa-quote-right' style='font-size:30px;color:blue'></i>
+          </p>
+          <p class="quote">
+            <i class='fa fa-quote-left' style='font-size:30px;color:blue'></i> We say social, because CodePen is a community. Most creations on CodePen are public and open source. They are living things that other people and the community can interact with, from a simple hearting, to leaving a comment, to forking and changing for their own needs. <i class='fa fa-quote-right' style='font-size:30px;color:blue'></i>
+          </p>
+          <p class="quote">
+            <i class='fa fa-quote-left' style='font-size:30px;color:blue'></i> People use CodePen for all sorts of things: prototyping new ideas, reduced test cases for bugs, sending clients things to look at, evaluating potential hires, to finding inspiration. People also use CodePen as a sort of resume and portfolio, showing off their best design and development work. <i class='fa fa-quote-right' style='font-size:30px;color:blue'></i>
+          </p>
+        </div>
+  
+        <nav>
+          <a id="leftBtn" class="prev"><i class="fa fa-arrow-left"></i></a>
+          <a id="rightBtn" class="next"><i class="fa fa-arrow-right"></i></a>
+        </nav>
+      </div>
+    </div>
+  
+    <div id="bg">
+      <div class="slide jobs-bg"></div>
+      <div class="slide zuck-bg"></div>
+      <div class="slide musk-bg"></div>
+    </div>
+  
+    <div id="nav-cirlces">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+  
+  </div>
+  <script>
+    // 1. Initialization
+    $(window).load(function() {
+  $(".circle").first().addClass("active");
+  $("#bg .slide").first().addClass("active");
+  $("#image .img").first().addClass("active");
+  $(".quote").first().addClass("active");
+});
+// Automatic Animation
+var animate = setInterval(function() {
+  var $this = $(".circle"),
+      currentActiveBubble = $("#nav-cirlces").find(".active"),
+      position = $("#nav-cirlces").children().index(currentActiveBubble),
+      num = $(".circle").length;
+
+  if (position < num - 1) {
+    $(".active").removeClass("active").next().addClass("active");
+  } else {
+    $(".circle").removeClass("active").first().addClass("active");
+    $("#bg .slide").removeClass("active").first().addClass("active");
+    $("#image .img").removeClass("active").first().addClass("active");
+    $(".quote").removeClass("active").first().addClass("active");
+  }
+  position++;
+}, 4500);
+// 3. Circle Click Event
+$(".circle").click(function() {
+  clearInterval(animate);
+
+  var $this = $(this),
+      $siblings = $this.parent().children(),
+      position = $siblings.index($this);
+
+  $(".circle").removeClass("active").eq(position).addClass("active");
+  $("#bg .slide").removeClass("active").eq(position).addClass("active");
+  $("#image .img").removeClass("active").eq(position).addClass("active");
+  $(".quote").removeClass("active").eq(position).addClass("active");
+});
+// Right and Left Button Click Events
+$("#rightBtn , #leftBtn").click(function() {
+  clearInterval(animate);
+
+  var $this = $(this),
+      currentActiveBubble = $("#nav-cirlces").find(".active"),
+      position = $("#nav-cirlces").children().index(currentActiveBubble),
+      num = $(".circle").length;
+
+  if ($this.hasClass("next")) {
+    if (position < num - 1) {
+      $(".active").removeClass("active").next().addClass("active");
+    } else {
+      $(".circle").removeClass("active").first().addClass("active");
+      $("#bg .slide").removeClass("active").first().addClass("active");
+      $("#image .img").removeClass("active").first().addClass("active");
+      $(".quote").removeClass("active").first().addClass("active");
+    }
+  } else {
+    if (position === 0) {
+      $(".circle").removeClass("active").last().addClass("active");
+      $("#bg .slide").removeClass("active").last().addClass("active");
+      $("#image .img").removeClass("active").last().addClass("active");
+      $(".quote").removeClass("active").last().addClass("active");
+    } else {
+      $(".active").removeClass("active").prev().addClass("active");
+    }
+  }
+});
+
+  </script>
+</body>
+</html>
