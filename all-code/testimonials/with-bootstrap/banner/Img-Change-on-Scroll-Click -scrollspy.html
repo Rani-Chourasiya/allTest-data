@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Change On Scroll & Click , scrollspy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<style>
+    section{
+  background-color:#121212;
+  padding-top:50px
+}
+.mouse_scroll {
+  overflow: visible;
+  position: relative;
+}
+.side_sec {
+  display: flex;
+}
+.img-links .text-sec {
+  text-align: left;
+  border: 1px solid rgba(138, 138, 138, 0.2) !important;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin: 20px 0px;
+  background: transparent;
+}
+.img-links .text-sec.active {
+  box-shadow: 0px 0px 40px rgb(255, 255, 255, 0.1);
+  border: none;
+  background: var(--box-bg-color);
+}
+/* .featured-img::before {
+  content: "";
+  position: absolute;
+  background: url(https://7xcel.com/wp-content/uploads/2024/05/iphone-1-1.png);
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: left;
+  left: 15%;
+  right: 0px;
+  top: -50px;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  margin-right: 0px;
+} */
+.featured-img {
+  position: sticky;
+  top: 140px;
+  height: 700px;
+}
+.featured-img img {
+  position: absolute;
+  left: 75px;
+  top: 35px;
+  width: 55%;
+  height: auto;
+  border-radius: 30px;
+}
+.side-text {
+  display: flex;
+}
+.side-text h3{
+  color:orange;
+}
+.side-text p{
+  color:#fff;
+}
+
+</style>
+</head>
+<body>
+    <section class="mobile_app_sec">
+        <div class="container">
+            <div class="row"> 
+                <div class="side-text">
+                    <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
+                        <div class="img-links">
+                            <div data-src="https://7xcel.com/wp-content/uploads/2024/05/Food.png" class="text-sec active">
+                                <i class="hp_icon food"></i>
+                                <h3 class="text-25 font-weight-700 margin-10px-bottom">Image 1</h3>
+                                <p class="text-16 width-90">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>               
+                            </div>
+                            <div class="text-sec" data-src="https://7xcel.com/wp-content/uploads/2024/05/Grocery-App.png">
+                                <i class="hp_icon grocery"></i>
+                                <h3 class="text-25 font-weight-700 margin-10px-bottom">Image 2</h3>
+                                <p class="text-16 width-90">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            </div>
+                            <div class="text-sec" data-src="https://7xcel.com/wp-content/uploads/2024/05/Home-Services.png">
+                                <i class="hp_icon homeser"></i>
+                                <h3 class="text-25 font-weight-700 margin-10px-bottom">Image 3</h3>
+                                <p class="text-16 width-90">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>            
+                            </div>
+                            <div class="text-sec" data-src="https://7xcel.com/wp-content/uploads/2024/05/Medicine-Delivery-App.png">
+                                <i class="hp_icon medicine"></i>
+                                <h3 class="text-25 font-weight-700 margin-10px-bottom">Image 4</h3>
+                                <p class="text-16 width-90">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>               
+                            </div>
+                            <div class="text-sec" data-src="https://7xcel.com/wp-content/uploads/2024/05/Fitness-App.png">
+                                <i class="hp_icon fitness"></i>
+                                <h3 class="text-25 font-weight-700 margin-10px-bottom">Image 5</h3>
+                                <p class="text-16 width-90">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            </div>
+                            <div class="text-sec" data-src="https://7xcel.com/wp-content/uploads/2024/05/Taxi-Booking.png">
+                                <i class="hp_icon taxi"></i>
+                                <h3 class="text-25 font-weight-700 margin-10px-bottom">Image 6</h3>
+                                <p class="text-16 width-90">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            </div>
+                            <div class="text-sec" data-src="https://7xcel.com/wp-content/uploads/2024/05/e-learning.png">
+                                <i class="hp_icon elearning"></i>
+                                <h3 class="text-25 font-weight-700 margin-10px-bottom">Image 7</h3>
+                                <p class="text-16 width-90">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            </div>
+                            <div class="text-sec" data-src="https://7xcel.com/wp-content/uploads/2024/05/Doctor-on-Demand.png">
+                                <i class="hp_icon doctor"></i>
+                                <h3 class="text-25 font-weight-700 margin-10px-bottom">Image 8</h3>
+                                <p class="text-16 width-90">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            </div>
+                            <div class="text-sec" data-src="https://7xcel.com/wp-content/uploads/2024/05/Dating-App.png">
+                                <i class="hp_icon dating"></i>
+                                <h3 class="text-25 font-weight-700 margin-10px-bottom">Image 9</h3>
+                                <p class="text-16 width-90">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            </div>
+                            <!-- Add more buttons as needed -->
+                        </div>
+                    </div>    
+                    <div class="offset-xl-1 col-xl-4 offset-lg-1 col-lg-4 col-md-12 col-sm-12 col-12 sm-display-none">
+                        <div class="featured-img">
+                            <img src="https://7xcel.com/wp-content/uploads/2024/05/Food.png" id="mainImage" alt="Featured Image">
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(function () {
+  const $textSec = $('.img-links .text-sec');
+  const $mainImg = $('#mainImage');
+
+  $textSec.on('click', function () {
+    $textSec.removeClass('active');
+    $(this).addClass('active');
+    $mainImg.attr('src', $(this).data('src'));
+    this.scrollIntoView({ block: 'center' });
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const $el = $(entry.target);
+      const toggleWheel = () => {
+        $textSec.removeClass('active');
+        $el.addClass('active');
+        $mainImg.attr('src', $el.data('src'));
+      };
+      entry.isIntersecting
+        ? $(window).on('wheel', toggleWheel)
+        : $(window).off('wheel', toggleWheel);
+    });
+  }, { threshold: 0.4 });
+
+  $textSec.each(function () {
+    observer.observe(this);
+  });
+});
+</script>
+<!-- <script>
+    
+    $(document).ready(function() {
+        $('.img-links .text-sec').click(function() {
+            var imageSrc = $(this).data('src');
+            $('#mainImage').attr('src', imageSrc);
+            // Remove active class from all buttons
+            $('.img-links .text-sec').removeClass('active');
+            // Add active class to the clicked button
+            $(this).addClass('active');
+            this.scrollIntoView({block:"center"}); 
+        });
+        $(document).ready(function() {
+        // Function to handle mouse wheel events
+        function handleMouseWheel(ele) {
+            // Your logic here
+            console.log("Mouse wheel event detected!");
+            $('.img-links .text-sec').removeClass('active');
+            $(ele).addClass('active');
+            // Update the main image based on the active button
+            var newImageSrc = $(ele).data('src');
+            $('#mainImage').attr('src', newImageSrc);
+        }
+        const options = {threshold: 0.4};
+        // Set up Intersection Observer
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Add scroll event listener when target element is visible
+                    $(window).on('wheel', () => handleMouseWheel(entry.target));
+                } else {
+                    // Remove scroll event listener when target element is not visible
+                    $(window).off('wheel', () => handleMouseWheel(entry.target));
+                }
+            });
+        }, options);
+        // Define the target elements you want to observe
+        const targetElements = $('.img-links .text-sec');
+        // Start observing each target element
+        targetElements.each(function() {observer.observe(this);});
+        });
+    });   
+    
+    </script> -->
+</body>
+</html>
