@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    <!--  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!--  -->
+    <title>Responsive Owl Carousel Slider</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <style>
+      
+.spaces-gal .owl-dots {
+  width: 100%;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.spaces-gal .owl-dot {
+  height: 10px;
+  width: 40px;
+  background-color: #ff5722 !important;
+  display: inline-block;
+  border-radius: 0;
+  opacity: 1;
+  transition: 0.3s;
+  margin: 0 5px;
+}
+
+.spaces-gal .owl-dot.active {
+  background-color: #e1e1e1 !important;
+  opacity: 1;
+  width: 40px;
+  position: relative;
+}
+
+.spaces-gal .owl-dot.active~.owl-dot {
+  background: #e1e1e1 !important;
+}
+
+.spaces-slide {
+  position: relative;
+}
+
+.spaces-slide img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
+  margin: auto;
+}
+
+.spaces-gal .owl-dot.active::before {
+  content: " ";
+  background-color: #ff5722;
+  -webkit-animation: backgroundLinera 5s linear;
+  animation: backgroundLinera 5s linear;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  border-radius: 2px;
+}
+
+@keyframes backgroundLinera {
+  0% {
+    width: 0
+  }
+
+  50% {
+    width: 50%
+  }
+
+  to {
+    width: 100%
+  }
+}
+
+.spaces-gal button {
+  appearance: none;
+  background: transparent;
+  border: 0px;
+  text-align: center;
+  position: relative;
+  display: block;
+  width: inherit;
+  margin-top: 1em;
+}
+
+/* owl slider css end */
+    </style>
+</head>
+<body>
+    <main class="all-content">
+      <section class="owl-slider">
+        <div class="">
+            <h1 class="">Owl slider</h1>
+            <div class="spaces-gal owl-carousel">
+                <div class="spaces-slide one" data-dot="<button>01</button>">
+                    <img src="assets/img/banner-1.jpg" alt="img1" />
+                </div>
+                <div class="spaces-slide two" data-dot="<button>02</button>">
+                    <img src="assets/img/banner-2.jpg" alt="img2" />
+                </div>
+                <div class="spaces-slide three" data-dot="<button>03</button>">
+                    <img src="assets/img/banner-1.jpg" alt="img3" />
+                </div>
+            </div>
+        </div>
+    </section>
+      </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="assets/main.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script> -->
+      <script>
+        // slider start
+$(".spaces-gal").owlCarousel({
+        autoplay:true,
+        slideSpeed: 9000,
+        items: 1,
+        // autoHeight: true,
+        loop: true,
+        dots: true,
+        dotsData: true,
+        nav: false,
+        center: true,
+        responsiveClass: true,
+        smartSpeed: 400,
+        // margin: 30,
+    });
+  
+// slider end
+      </script>
+</body>
+</html>

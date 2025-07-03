@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!--  -->
+    <title>Responsive OwlCarousel-withAnimated css </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <!--custom style -->
+    <style>
+        
+
+ul  {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+h1 {
+	text-align: center;
+}
+
+
+/* SLIDER STARTS */
+.news-main {
+	margin: 0 auto;
+	width: 400px;
+	max-width: 100%;
+	background-color: #eee;
+	border: 1px solid #ddd;
+}
+
+.news-main h2 {
+	background-color: green;
+	color: #fff;
+	padding: 15px 20px;
+}
+
+.news-main h2 span {
+	font-size: 80%;
+}
+
+.news-main ul {
+	padding: 10px 20px;
+}
+
+.news-main ul li {
+	padding: 15px 0;
+}
+
+.news-main ul li:after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+/* .news-main ul li > div {
+	float: left;
+} */
+
+/* .news-thumbnail {
+	width: 75px;
+	margin-right: 15px;
+}
+
+.news-thumbnail img {
+	width: 100%;
+	border-radius: 50%;
+} */
+
+.news-content {
+	width: calc(100% - 90px);
+}
+
+
+
+/* owl */
+
+.news-main .owl-nav {
+    position: absolute;
+    right: 10px;
+    top: -55px;
+}
+.news-main .owl-nav > button {
+    background: #fff !important;
+    border-radius: 50%;
+    color: green !important;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px !important;
+    margin: 0 3px;
+    text-align: center;
+    width: 30px;
+    transition: all .3s;
+}
+
+.news-main .owl-nav > button:hover {
+	opacity: .8;
+}
+    </style>
+</head>
+
+<body>
+    <section class="">
+      <h1>
+        <mark>Note: jQuery 2.1.3 & Owl carousel 2.1.6 used.</mark> </h1> <br>
+      
+      <div class="news-wrapper">
+        <div class="news-main">
+      
+          <h2>News <span>&gt;&gt;</span></h2>
+      
+          <!-- Slider Starts -->
+          <div class="owl-carousel news-slider">
+      
+            <!-- slider item-->
+            <ul class="news-slider-item">
+              <li>
+                <div class="news-thumbnail">
+                  <img src="https://lorempixel.com/80/80/" alt="">
+                </div>
+      
+                <div class="news-content">
+                  <h3>John Doe</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, rerum?</p>
+                </div>
+              </li>
+              <li>
+                <div class="news-thumbnail">
+                  <img src="//lorempixel.com/80/80/" alt="">
+                </div>
+      
+                <div class="news-content">
+                  <h3>John Doe</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, rerum?</p>
+                </div>
+              </li>
+              <li>
+                <div class="news-thumbnail">
+                  <img src="https://lorempixel.com/80/80/" alt="">
+                </div>
+      
+                <div class="news-content">
+                  <h3>John Doe</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, rerum?</p>
+                </div>
+              </li>
+            </ul>
+            <!-- /slider item -->
+            <!-- slider item-->
+            <ul class="news-slider-item">
+              <li>
+                <div class="news-thumbnail">
+                  <img src="https://lorempixel.com/80/80/" alt="">
+                </div>
+      
+                <div class="news-content">
+                  <h3>John Doe</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, rerum?</p>
+                </div>
+              </li>
+              <li>
+                <div class="news-thumbnail">
+                  <img src="https://lorempixel.com/80/80/" alt="">
+                </div>
+      
+                <div class="news-content">
+                  <h3>John Doe</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, rerum?</p>
+                </div>
+              </li>
+              <li>
+                <div class="news-thumbnail">
+                  <img src="https://lorempixel.com/80/80/" alt="">
+                </div>
+      
+                <div class="news-content">
+                  <h3>John Doe</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, rerum?</p>
+                </div>
+              </li>
+            </ul>
+            <!-- /slider item -->
+          </div>
+          <!-- slider ends -->
+      
+        </div>
+        <!-- news-main -->
+      </div>
+      <!-- news-wrapper -->
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <!-- custom script -->
+    <script>
+$(".news-slider").owlCarousel({
+	items: 1,
+	nav: true,
+	dots: false,
+	autoplay: true,
+	loop: true,
+	mouseDrag: true,
+	touchDrag: true,
+	navText: ["<span>&lt;</span>", "<span>&gt;</span>"],
+});
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    <!--  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!--  -->
+    <title>Profile Cards With Slider</title>
+
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <style>
+        @charset "UTF-8";
+        @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;900&family=Quicksand:wght@400;500;600;700&display=swap");
+
+        :root {
+            --size: 25px;
+            --textSizeHeading: 1.4rem;
+            --textSize: 1rem;
+        }
+
+        html {
+            background: #f4f7fd;
+            min-height: 100vh;
+            font-family: "Quicksand", sans-serif;
+        }
+
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+            width: calc(min(78.75rem, 90%));
+            margin: 0 auto;
+            gap: 30px;
+            padding: 5em 0;
+        }
+
+        .slick-prev,
+        .slick-next {
+            width: var(--size);
+            height: var(--size);
+        }
+
+        .slick-prev {
+            left: calc(var(--size) - 5px);
+            z-index: 10;
+        }
+
+        .slick-prev:before {
+            content: "❮";
+            font-size: var(--size);
+        }
+
+        .slick-next {
+            right: calc(var(--size) - 5px);
+            z-index: 10;
+        }
+
+        .slick-next:before {
+            content: "❯";
+            font-size: var(--size);
+        }
+
+        .slick-disabled {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .slick-slide img {
+            width: 100%;
+            border-radius: 5px;
+            object-fit: cover;
+            aspect-ratio: 1/1;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .slick-slide {
+            margin: 3.5px;
+        }
+
+        .slick-slider {
+            margin-bottom: 0px;
+        }
+
+        .card {
+            background: #fff;
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        .card .card-footer ul::before,
+        .card-footer .card ul::before,
+        .card .card-header--img span,
+        .card-header--img .card span,
+        .card .card-header--img>div,
+        .card .card-header .menu-content,
+        .card-header .card .menu-content {
+            content: "";
+            position: absolute;
+        }
+
+        .card-carousel {
+            padding: 6px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1.5em;
+            transform: translateY(-20px);
+            align-items: center;
+        }
+
+        .card-header .favourite {
+            width: calc(var(--size) - 3px);
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+            height: calc(var(--size) - 3px);
+        }
+
+        .card-header .favourite:hover {
+            fill: #ffbb01;
+            color: #ffbb01;
+        }
+
+        .card-header .menu {
+            width: var(--size);
+            cursor: pointer;
+            position: relative;
+            height: calc(var(--size) - 3px);
+        }
+
+        .card-header .menu:hover {
+            color: #1084e8;
+        }
+
+        .card-header .menu-content {
+            display: none;
+            grid-template-columns: 1fr;
+            background-color: #fff;
+            min-width: 180px;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            top: 60px;
+            right: 0;
+            gap: 10px;
+            border-radius: 0.4rem;
+            padding: 1.3em 1.25em;
+            z-index: 60;
+        }
+
+        .card-header .menu-content a {
+            font-size: var(--textSize);
+            color: #646464;
+            text-decoration: none;
+        }
+
+        .card-header .menu-content a:hover {
+            color: #1084e8;
+        }
+
+        .card-header>svg {
+            color: gray;
+            margin-top: 1em;
+        }
+
+        .card-header--img {
+            position: relative;
+        }
+
+        .card-header--img>div {
+            right: 0px;
+            bottom: 8px;
+        }
+
+        .card-header--img svg {
+            color: #329de1;
+            position: relative;
+            z-index: 10;
+            width: calc(var(--size) - 3px);
+        }
+
+        .card-header--img span {
+            width: calc(var(--size) - 3px);
+            height: calc(var(--size) - 3px);
+            background: #fff;
+            display: block;
+            border-radius: 50%;
+            padding: 2px;
+            top: -2px;
+            left: -2px;
+        }
+
+        .card-header img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            object-fit: cover;
+        }
+
+        .card-body {
+            text-align: center;
+        }
+
+        .card-body h3 {
+            margin-top: -18px;
+            margin-bottom: 1px;
+            font-size: var(--textSizeHeading);
+            font-weight: 700;
+        }
+
+        .card-body span {
+            text-transform: capitalize;
+            color: #717171;
+            font-size: 0.92rem;
+            font-weight: 500;
+        }
+
+        .card-body p {
+            color: #4e4c4c;
+            font-size: var(--textSize);
+            line-height: 1.4;
+            font-weight: 500;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            padding: 0 3em;
+        }
+
+        .card-footer {
+            padding-top: 5px;
+        }
+
+        .card-footer ul {
+            column-count: 3;
+            padding: 1.5em 2.6em 3em;
+            position: relative;
+        }
+
+        .card-footer ul::before {
+            top: 0;
+            left: 50%;
+            transform: translatex(-50%);
+            width: 60px;
+            height: 1.1px;
+            background: #d6d6d6;
+        }
+
+        .card-footer ul li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: calc(var(--size) - 3px);
+            font-family: "Lato", sans-serif;
+            font-weight: 900;
+            color: #333333;
+        }
+
+        .card-footer ul li span {
+            font-size: var(--textSize);
+            font-weight: normal;
+            color: #666464;
+            text-transform: capitalize;
+            margin-top: 5px;
+            font-family: "Quicksand", sans-serif;
+            font-weight: 500;
+        }
+
+        .card:hover .favourite {
+            opacity: 1;
+        }
+
+        .clicked {
+            fill: #ffbb01;
+            color: #ffbb01 !important;
+            opacity: 1 !important;
+        }
+
+        .active .menu-content {
+            display: grid !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section>
+        <div class="card">
+            <div class="card-carousel">
+                <div><img src="https://picsum.photos/300/200?random=1"></div>
+                <div><img src="https://picsum.photos/300/200?random=2"></div>
+                <div><img src="https://picsum.photos/300/200?random=3"></div>
+                <div><img src="https://picsum.photos/300/200?random=4"></div>
+                <div><img src="https://picsum.photos/300/200?random=5"></div>
+                <div><img src="https://picsum.photos/300/200?random=6"></div>
+            </div>
+            <div class="card-header">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="favourite">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                </svg>
+                <div class="card-header--img">
+                    <img src="https://randomuser.me/api/portraits/men/46.jpg">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M8.603 3.799A4.49 4.49 0 0112 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 013.498 1.307 4.491 4.491 0 011.307 3.497A4.49 4.49 0 0121.75 12a4.49 4.49 0 01-1.549 3.397 4.491 4.491 0 01-1.307 3.497 4.491 4.491 0 01-3.497 1.307A4.49 4.49 0 0112 21.75a4.49 4.49 0 01-3.397-1.549 4.49 4.49 0 01-3.498-1.306 4.491 4.491 0 01-1.307-3.498A4.49 4.49 0 012.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 011.307-3.497 4.49 4.49 0 013.497-1.307zm7.007 6.387a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span></span>
+                    </div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="menu">
+                    <path fill-rule="evenodd"
+                        d="M4.5 12a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm6 0a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm6 0a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z"
+                        clip-rule="evenodd" />
+                </svg>
+                <div class="menu-content">
+                    <a href="#feed">Add to Feed</a>
+                    <a href="#instagram">Follow on Instagram</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <h3>cassian</h3>
+                <span>cassian rochbert</span>
+                <p>Lifestyle coach and photographer delivering best images online just for you. Lifestyle coach and
+                    photographer delivering best images online just for you.</p>
+            </div>
+            <div class="card-footer">
+                <ul>
+                    <li>
+                        37
+                        <span>media</span>
+                    </li>
+                    <li>
+                        241k
+                        <span>followers</span>
+                    </li>
+                    <li>
+                        197
+                        <span>following</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-carousel">
+                <div><img src="https://picsum.photos/300/200?random=7"></div>
+                <div><img src="https://picsum.photos/300/200?random=8"></div>
+                <div><img src="https://picsum.photos/300/200?random=9"></div>
+                <div><img src="https://picsum.photos/300/200?random=10"></div>
+                <div><img src="https://picsum.photos/300/200?random=11"></div>
+                <div><img src="https://picsum.photos/300/200?random=12"></div>
+            </div>
+            <div class="card-header">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="favourite">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                </svg>
+                <div class="card-header--img">
+                    <img src="https://randomuser.me/api/portraits/women/79.jpg">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M8.603 3.799A4.49 4.49 0 0112 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 013.498 1.307 4.491 4.491 0 011.307 3.497A4.49 4.49 0 0121.75 12a4.49 4.49 0 01-1.549 3.397 4.491 4.491 0 01-1.307 3.497 4.491 4.491 0 01-3.497 1.307A4.49 4.49 0 0112 21.75a4.49 4.49 0 01-3.397-1.549 4.49 4.49 0 01-3.498-1.306 4.491 4.491 0 01-1.307-3.498A4.49 4.49 0 012.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 011.307-3.497 4.49 4.49 0 013.497-1.307zm7.007 6.387a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span></span>
+                    </div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="menu">
+                    <path fill-rule="evenodd"
+                        d="M4.5 12a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm6 0a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm6 0a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z"
+                        clip-rule="evenodd" />
+                </svg>
+                <div class="menu-content">
+                    <a href="#feed">Add to Feed</a>
+                    <a href="#instagram">Follow on Instagram</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <h3>amanda_nash</h3>
+                <span>amanda nash</span>
+                <p>Lifestyle coach and photographer delivering best images online just for you. Lifestyle coach and
+                    photographer delivering best images online just for you.</p>
+            </div>
+            <div class="card-footer">
+                <ul>
+                    <li>
+                        1.2k
+                        <span>media</span>
+                    </li>
+                    <li>
+                        489.2k
+                        <span>followers</span>
+                    </li>
+                    <li>
+                        987
+                        <span>following</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-carousel">
+                <div><img src="https://picsum.photos/300/200?random=13"></div>
+                <div><img src="https://picsum.photos/300/200?random=14"></div>
+                <div><img src="https://picsum.photos/300/200?random=15"></div>
+                <div><img src="https://picsum.photos/300/200?random=16"></div>
+                <div><img src="https://picsum.photos/300/200?random=17"></div>
+                <div><img src="https://picsum.photos/300/200?random=18"></div>
+            </div>
+            <div class="card-header">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="favourite">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                </svg>
+                <div class="card-header--img">
+                    <img
+                        src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?crop=faces&fit=crop&h=200&w=200&auto=compress&cs=tinysrgb">
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="menu">
+                    <path fill-rule="evenodd"
+                        d="M4.5 12a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm6 0a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm6 0a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z"
+                        clip-rule="evenodd" />
+                </svg>
+                <div class="menu-content">
+                    <a href="#feed">Add to Feed</a>
+                    <a href="#instagram">Follow on Instagram</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <h3>james_r</h3>
+                <span>james roberts</span>
+                <p>Lifestyle coach and photographer delivering best images online just for you. Lifestyle coach and
+                    photographer delivering best images online just for you.</p>
+            </div>
+            <div class="card-footer">
+                <ul>
+                    <li>
+                        65
+                        <span>media</span>
+                    </li>
+                    <li>
+                        121
+                        <span>followers</span>
+                    </li>
+                    <li>
+                        19
+                        <span>following</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-carousel">
+                <div><img src="https://picsum.photos/300/200?random=27"></div>
+                <div><img src="https://picsum.photos/300/200?random=28"></div>
+                <div><img src="https://picsum.photos/300/200?random=29"></div>
+                <div><img src="https://picsum.photos/300/200?random=30"></div>
+                <div><img src="https://picsum.photos/300/200?random=31"></div>
+                <div><img src="https://picsum.photos/300/200?random=32"></div>
+            </div>
+            <div class="card-header">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="favourite">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                </svg>
+                <div class="card-header--img">
+                    <img
+                        src="https://images.pexels.com/photos/38554/girl-people-landscape-sun-38554.jpeg?auto=compress&cs=tinysrgb&crop=faces&fit=crop&h=200&w=200">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M8.603 3.799A4.49 4.49 0 0112 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 013.498 1.307 4.491 4.491 0 011.307 3.497A4.49 4.49 0 0121.75 12a4.49 4.49 0 01-1.549 3.397 4.491 4.491 0 01-1.307 3.497 4.491 4.491 0 01-3.497 1.307A4.49 4.49 0 0112 21.75a4.49 4.49 0 01-3.397-1.549 4.49 4.49 0 01-3.498-1.306 4.491 4.491 0 01-1.307-3.498A4.49 4.49 0 012.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 011.307-3.497 4.49 4.49 0 013.497-1.307zm7.007 6.387a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span></span>
+                    </div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="menu">
+                    <path fill-rule="evenodd"
+                        d="M4.5 12a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm6 0a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm6 0a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z"
+                        clip-rule="evenodd" />
+                </svg>
+                <div class="menu-content">
+                    <a href="#feed">Add to Feed</a>
+                    <a href="#instagram">Follow on Instagram</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <h3>snowstorm</h3>
+                <span>miranda smith</span>
+                <p>Lifestyle coach and photographer delivering best images online just for you. Lifestyle coach and
+                    photographer delivering best images online just for you.</p>
+            </div>
+            <div class="card-footer">
+                <ul>
+                    <li>
+                        8k
+                        <span>media</span>
+                    </li>
+                    <li>
+                        36k
+                        <span>followers</span>
+                    </li>
+                    <li>
+                        15k
+                        <span>following</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-carousel">
+                <div><img src="https://picsum.photos/300/200?random=33"></div>
+                <div><img src="https://picsum.photos/300/200?random=34"></div>
+                <div><img src="https://picsum.photos/300/200?random=35"></div>
+                <div><img src="https://picsum.photos/300/200?random=36"></div>
+                <div><img src="https://picsum.photos/300/200?random=37"></div>
+                <div><img src="https://picsum.photos/300/200?random=38"></div>
+            </div>
+            <div class="card-header">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="favourite">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                </svg>
+                <div class="card-header--img">
+                    <img
+                        src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&crop=faces&fit=crop&h=200&w=200">
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="menu">
+                    <path fill-rule="evenodd"
+                        d="M4.5 12a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm6 0a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm6 0a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z"
+                        clip-rule="evenodd" />
+                </svg>
+                <div class="menu-content">
+                    <a href="#feed">Add to Feed</a>
+                    <a href="#instagram">Follow on Instagram</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <h3>robertX</h3>
+                <span>robert rollins</span>
+                <p>Lifestyle coach and photographer delivering best images online just for you. Lifestyle coach and
+                    photographer delivering best images online just for you.</p>
+            </div>
+            <div class="card-footer">
+                <ul>
+                    <li>
+                        5
+                        <span>media</span>
+                    </li>
+                    <li>
+                        12
+                        <span>followers</span>
+                    </li>
+                    <li>
+                        1
+                        <span>following</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-carousel">
+                <div><img src="https://picsum.photos/300/200?random=10"></div>
+                <div><img src="https://picsum.photos/300/200?random=20"></div>
+                <div><img src="https://picsum.photos/300/200?random=30"></div>
+                <div><img src="https://picsum.photos/300/200?random=40"></div>
+                <div><img src="https://picsum.photos/300/200?random=50"></div>
+                <div><img src="https://picsum.photos/300/200?random=60"></div>
+            </div>
+            <div class="card-header">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="favourite">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                </svg>
+                <div class="card-header--img">
+                    <img
+                        src="https://images.pexels.com/photos/247885/pexels-photo-247885.jpeg?crop=faces&fit=crop&h=200&w=200&auto=compress&cs=tinysrgb">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M8.603 3.799A4.49 4.49 0 0112 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 013.498 1.307 4.491 4.491 0 011.307 3.497A4.49 4.49 0 0121.75 12a4.49 4.49 0 01-1.549 3.397 4.491 4.491 0 01-1.307 3.497 4.491 4.491 0 01-3.497 1.307A4.49 4.49 0 0112 21.75a4.49 4.49 0 01-3.397-1.549 4.49 4.49 0 01-3.498-1.306 4.491 4.491 0 01-1.307-3.498A4.49 4.49 0 012.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 011.307-3.497 4.49 4.49 0 013.497-1.307zm7.007 6.387a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span></span>
+                    </div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="menu">
+                    <path fill-rule="evenodd"
+                        d="M4.5 12a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm6 0a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm6 0a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z"
+                        clip-rule="evenodd" />
+                </svg>
+                <div class="menu-content">
+                    <a href="#feed">Add to Feed</a>
+                    <a href="#instagram">Follow on Instagram</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <h3>hurricane</h3>
+                <span>henry cane</span>
+                <p>Lifestyle coach and photographer delivering best images online just for you. Lifestyle coach and
+                    photographer delivering best images online just for you.</p>
+            </div>
+            <div class="card-footer">
+                <ul>
+                    <li>
+                        37
+                        <span>media</span>
+                    </li>
+                    <li>
+                        241k
+                        <span>followers</span>
+                    </li>
+                    <li>
+                        197
+                        <span>following</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".card-carousel").slick({
+                slidesToShow: 2.6,
+                dots: false,
+                slidesToScroll: 1,
+                autoplay: false,
+                infinite: false,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 3.5,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 2.8,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+
+            $(".favourite").click(function () {
+                $(this).toggleClass("clicked");
+            });
+        });
+
+        let menu = document.querySelectorAll(".menu");
+        for (let i = 0; i < menu.length; i++) {
+            menu[i].addEventListener("click", function () {
+                menu[i].parentNode.classList.toggle("active");
+            });
+        }
+
+        /* inspiration 
+        https://dribbble.com/shots/5369103-A-Search-Influencers/attachments/1164054?mode=media
+        */
+
+    </script>
+
+</body>
+
+</html>

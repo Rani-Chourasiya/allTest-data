@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    <!--  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!--  -->
+    <link rel="stylesheet" href="assets/stylesheet.css">
+    <title>Item width increase/expand on hover and other's width decrease</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <style>
+        :root {
+            --xspace: 5px;
+            --vw-width: calc(100vw - 18px);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .carousel-accordion.owl-carousel {
+            max-width: 90%;
+            margin: 3vh auto;
+        }
+
+        .carousel-accordion.owl-carousel .owl-stage {
+            display: flex;
+        }
+
+        .carousel-accordion.owl-carousel {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .carousel-accordion .owl-item a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /*   .active {
+  background: #ddd;
+}
+
+.expanded {
+  background: #333;
+}  */
+
+        .carousel-accordion .accordion_li .bg-image {
+            height: 70vh;
+            display: flex;
+            max-height: 400px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+
+        .carousel-accordion .accordion_li img {
+            /* aspect-ratio: 1;
+  width: 100%;
+  height: 100%; */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: inherit;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        @media (min-width: 1200px) {
+            .carousel-accordion .owl-item {
+                padding: 0 var(--xspace);
+            }
+
+            .carousel-accordion .accordion_li .bg-image {
+                max-height: 600px;
+                width: unset;
+            }
+
+            .carousel-accordion .accordion_li {
+                width: calc((((var(--vw-width)) - (var(--xspace) * 2)) / 5));
+            }
+        }
+
+        /* owl nav show on  more than  5 slide on desktop */
+
+        .owl-carousel .owl-nav {
+            text-align: center;
+        }
+
+        .owl-carousel .owl-nav button.owl-prev {
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+            margin: 0 5px;
+            background: #000;
+            display: inline-grid;
+            place-content: center;
+        }
+
+        .owl-carousel .owl-nav button.owl-prev:focus {
+            outline: 0;
+        }
+
+        .owl-carousel .owl-nav button.owl-next .angle-right,
+        .owl-carousel .owl-nav button.owl-prev .angle-left {
+            height: 30px;
+            width: 30px;
+            border-radius: 10px;
+            background: #000 url(https://png.pngtree.com/element_our/20190601/ourlarge/pngtree-white-direction-arrow-right-icon-image_1338652.jpg) no-repeat center;
+            background-size: 10px auto;
+        }
+
+        .owl-carousel .owl-nav button.owl-prev .angle-right.angle-left {
+            rotate: 180deg;
+        }
+
+        .owl-carousel .owl-nav button.owl-prev .angle-left.angle-left {
+            rotate: 180deg;
+        }
+
+        .owl-carousel .owl-nav button.owl-next {
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+            margin: 0 5px;
+            background: #000;
+            display: inline-grid;
+            place-content: center;
+        }
+
+        .owl-carousel .owl-nav button.owl-next:focus {
+            outline: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="all-content">
+        <section class="owl-slider">
+            <h2>Increase item width on hover</h2>
+            <div class="carousel-accordion owl-carousel">
+                <!--   if you add more than 5 slides, then they active carousel navigations -->
+
+                <div class="accordion_li">
+                    <a href="#">
+                        <div class="bg-image">
+                            <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
+                                class="accordion_img" alt="img">
+                        </div>
+                        <div class="pv-content">
+                            <p>Lorem ipsum dolor sit .</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="accordion_li">
+                    <a href="#">
+                        <div class="bg-image">
+                            <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
+                                class="accordion_img" alt="img">
+                        </div>
+                        <div class="pv-content">
+                            <p>Lorem dolor sit amet.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="accordion_li">
+                    <a href="#">
+                        <div class="bg-image">
+                            <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
+                                class="accordion_img" alt="img">
+                        </div>
+                        <div class="pv-content">
+                            <p>Lorem ipsum dolor amet.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="accordion_li">
+                    <a href="#">
+                        <div class="bg-image">
+                            <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
+                                class="accordion_img" alt="img">
+                        </div>
+                        <div class="pv-content">
+                            <p>Loruem ipsum dolor sit amet.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="accordion_li">
+                    <a href="#">
+                        <div class="bg-image">
+                            <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
+                                class="accordion_img" alt="img">
+                        </div>
+                        <div class="pv-content">
+                            <p>Loruem ipsum dolor sit amet.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="accordion_li">
+                    <a href="#">
+                        <div class="bg-image">
+                            <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
+                                class="accordion_img" alt="img">
+                        </div>
+                        <div class="pv-content">
+                            <p>Lorem ipsum dolor siett amet.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        if ($(window).width() > 1200) {
+            function itemSize() {
+                var OwlSlideItem = $(".carousel-accordion .accordion_li"),
+                    // OwlSlideItemmargin = 10,
+                    itemsLength = 5,
+                    owlFullScrnWidth = $(".carousel-accordion").width(),
+                    normItemWidth = owlFullScrnWidth / itemsLength - 9;
+
+                OwlSlideItem.stop().animate({ width: normItemWidth + "px" }, 500);
+            }
+            itemSize();
+        }
+
+        function itemExpanded() {
+            var OwlSlidemactive = $(".carousel-accordion .owl-item.active"),
+                // OwlSlideItemmargin = $('.carousel-accordion .owl-item').css('marginRight').replace(/[A-Za-z]/g, ""),
+                itemsLength = 5,
+                owlFullScrnWidth = $(".carousel-accordion").width() - itemsLength,
+                normItemWidth = owlFullScrnWidth / itemsLength - 10,
+                lgItemWidth = normItemWidth * 2 + 20,
+                smItemWidth = (normItemWidth * 3) / 4 - 3;
+
+            OwlSlidemactive.hover(
+                function () {
+                    var $this = $(this);
+                    $this
+                        .addClass("expanded")
+                        .removeClass("active")
+                        .find(".accordion_li")
+                        .stop()
+                        .animate({ width: lgItemWidth + "px" }, 500);
+                    $(".carousel-accordion .active")
+                        .find(".accordion_li")
+                        .stop()
+                        .animate({ width: smItemWidth + "px" }, 500);
+                },
+                function () {
+                    var $this = $(this);
+                    $this.removeClass("expanded").addClass("active");
+                    $(".carousel-accordion .active")
+                        .find(".accordion_li")
+                        .stop()
+                        .animate({ width: normItemWidth + "px" }, 500);
+                }
+            );
+        }
+        initialize_owl($(".carousel-accordion"));
+
+        function initialize_owl(el) {
+            el.owlCarousel({
+                loop: false,
+                margin: 10,
+                navText: ["<i class='angle-left'></i>", "<i class='angle-right'></i>"],
+                dots: false,
+                autoPlay: true,
+                autoplayTimeout: 1000,
+                autoplayHoverPause: true,
+                nav: true,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1.25
+                    },
+                    460: {
+                        items: 1.75
+                    },
+                    768: {
+                        items: 2.5
+                    },
+                    900: {
+                        items: 3.5
+                    },
+                    1200: {
+                        margin: 0,
+                        onInitialized: itemExpanded,
+                        onRefresh: itemExpanded,
+                        autoWidth: true,
+                        mouseDrag: false,
+                        items: 5
+                    }
+                }
+            });
+        }
+
+    </script>
+
+</body>
+
+</html>

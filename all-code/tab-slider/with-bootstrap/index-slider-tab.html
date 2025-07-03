@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!--  -->
+    <title>Just another carousel using swiper</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css"
+        integrity="sha512-rd0qOHVMOcez6pLWPVFIv7EfSdGKLt+eafXh4RO/12Fgr41hDQxfGvoi1Vy55QIVcQEujUE1LQrATCLl2Fs+ag=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--custom style -->
+    <style>
+       
+        .swiper {
+            position: relative;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .swiper-slide {
+            width: 10rem;
+            height: 24rem;
+            display: flex;
+            flex-direction: column;
+            align-items: self-start;
+            position: relative;
+            border-radius: 12px;
+            box-shadow: -1px 5px 15px #0000001f;
+            text-align: center;
+            /* opacity: 0.4; */
+            transition: opacity 0.4s ease-in;
+        }
+
+        .swiper-slide-active {
+            display: grid;
+            opacity: 1;
+        }
+
+        .swiper-pagination {
+            position: relative;
+            bottom: -0.313rem;
+            text-align: center;
+            margin-top: 35px;
+            width: auto;
+        }
+
+        .swiper-pagination-bullet {
+            border-radius: 0;
+            width: 1.5rem;
+            height: 0.25rem;
+            /* background: #fff; */
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #5b1616;
+        }
+        .card-wrap {
+    background-color: #fff;
+    box-shadow: rgba(149,157,165,0.2) 0px 8px 24px;
+    padding: 32px;
+    transition: all .5s;
+}
+.card-service-img {
+    height: 215px;
+    width: 100%;
+    object-fit: cover;
+}
+.card-heading {
+    max-width: max-content;
+    font-size: 1.6rem;
+    color: #1b60a5;
+}
+.card-heading::after {
+    position: absolute;
+    content: '';
+    width: 53px;
+    height: 1px;
+    background-color: #666666;
+    bottom: 0;
+    left: 0;
+}
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: #222222;
+}
+.filter-link:hover::after, .filter-link.active::after, .filter-link.active {
+    transform: scale3d(1, 1, 1);
+    color: #1b60a5
+}
+.filter-link{
+    font-size: 1.5rem;
+}
+.filter-link::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: 0.5s transform ease;
+    transform: scale3d(0, 1, 1);
+    transform-origin: 50% 50%;
+    background-color: #007aff;
+}
+.gallery-product {
+    border: 1px solid #eee;
+    border-radius: 12px;
+}
+.portfolio-overlay {
+    position: absolute;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 84%;
+    transition: .5s all;
+    height: auto;
+    opacity: 0;
+}
+.project-title {
+    font-size: 1.2rem;
+    border-bottom: 1px solid #eee;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.testimonial-polygon {
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    bottom: 0;
+}
+.client-img-wrap {
+    width: 228px;
+    height: 228px;
+}
+.client-img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    right: -36px;
+    border: 3px solid var(--color-white);
+    top: 50%;
+    box-shadow: rgba(0,0,0,0.16) 0px 1px 4px;
+    transform: translateY(-50%);
+}
+.quote-img {
+    position: absolute;
+    left: 10px;
+    top: 60px;
+    width: 52px;
+    transition: .3s all;
+}
+.client-img-wrap::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: #1b60a5;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+    border-radius: 50%;
+}
+.swiper-testimonial {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #333;
+    font-size: 24px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.swiper-button-next {
+    right: 10px;
+}
+
+.swiper-button-prev {
+    left: 10px;
+}
+
+    </style>
+</head>
+
+<body>
+
+<!-- Services Section Start -->
+<section class="service-section">
+    <div class="container my-4 my-sm-0">
+        <h2 class="section-heading mb-2 mb-md-4"><span
+                class="text-gradient">Innovative Service</span> solutions</h2>
+        <p class="section-subtitle">We deal with all kind of services</p>
+        <div class="swiper mySwiper py-4 pt-md-4" data-aos="fade-up">
+            <div class="swiper-wrapper pb-3 pb-lg-5">
+                <div class="swiper-slide">
+                    <a class="card-wrap" href="/service_detail">
+                        <img alt="Service Image" class="card-service-img" src="assets/img/service-img-2.jpg" />
+                        <h3 class="card-heading position-relative my-3 my-md-4 pb-4">UI/UX Designing</h3>
+                        <p class="mb-0 card-content">Our team of skilled designers and developers collaborate closely
+                            with you to create engaging user interfaces that enhance drive conversions.</p>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a class="card-wrap" href="/service_detail">
+                        <img alt="Service Image" class="card-service-img" src="assets/img/service-img-3.jpeg" />
+                        <h3 class="card-heading position-relative my-3 my-md-4 pb-4">Human Resource Tool</h3>
+                        <p class="mb-0 card-content">Tailored for modern businesses, our solution offers a comprehensive
+                            suite of features to enhance efficiency and productivity.</p>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a class="card-wrap" href="/service_detail">
+                        <img alt="Service Image" class="card-service-img" src="assets/img/service-img-4.jpg" />
+                        <h3 class="card-heading position-relative my-3 my-md-4 pb-4">CMS Development</h3>
+                        <p class="mb-0 card-content">Our team of experienced professionals is committed to delivering
+                            top-notch guidance every step of the way, ensuring your website operates efficiently.</p>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a class="card-wrap" href="/service_detail">
+                        <img alt="Service Image" class="card-service-img" src="assets/img/service-img-3.jpeg" />
+                        <h3 class="card-heading position-relative my-3 my-md-4 pb-4">MVP Development</h3>
+                        <p class="mb-0 card-content">Our team of seasoned experts specialises in crafting MVPs that
+                            strike the perfect balance between functionality, usability, and scalability.</p>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a class="card-wrap" href="/service_detail">
+                        <img alt="Service Image" class="card-service-img" src="assets/img/service-img-2.jpg" />
+                        <h3 class="card-heading position-relative my-3 my-md-4 pb-4">Responsive Design</h3>
+                        <p class="mb-0 card-content">We specialize in Responsive Design, crafting layouts that adapt
+                            seamlessly to all devices, engaging visitors across various screen sizes.</p>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a class="card-wrap" href="/service_detail">
+                        <img alt="Service Image" class="card-service-img" src="assets/img/service-img-4.jpg" />
+                        <h3 class="card-heading position-relative my-3 my-md-4 pb-4">Project Management Tool</h3>
+                        <p class="mb-0 card-content">We offer project management tools for streamlined software
+                            development, empowering efficient team collaboration to meet timelines and budgets.</p>
+                    </a>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>
+<!-- Services Section End -->
+ 
+<!-- Portfolio Section Start -->
+<section class="ct-portfolio-section mt-4 pt-lg-5" id="portfolio-section">
+    <div class="container">
+        <h2 class="section-heading mb-2 mb-md-4"><span class="text-gradient">View Recent</span> Works</h2>
+        <p class="section-subtitle">Check out the most recent additions to our portfolio</p>
+        <div class="portfolio-gallery">
+            <ul class="filter-links d-flex flex-wrap justify-content-center justify-content-md-start gap-3 gap-md-4 gap-lg-5 my-4 my-md-5">
+                <li>
+                    <a href="#" class="btn filter-link border-0 position-relative active" data-category="all">All</a>
+                </li>
+                <li>
+                    <a href="#" class="btn filter-link border-0 position-relative" data-category="web-development">Web Development</a>
+                </li>
+                <li>
+                    <a href="#" class="btn filter-link border-0 position-relative" data-category="full-stack-development">Full Stack Development</a>
+                </li>
+                <li>
+                    <a href="#" class="btn filter-link border-0 position-relative" data-category="web-design">Web Design</a>
+                </li>
+            </ul>
+            <div class="gallery row">
+                <div class="image-container px-3 mb-4 mb-sm-5 col-lg-4 col-md-4 col-sm-6 col-xs-12" data-categories="all,web-development,full-stack-development">
+                    <div class="gallery-product p-2 p-sm-4 position-relative">
+                        <img alt="" class="img-responsive w-100 project-img" src="assets/img/portfolio-1.png" />
+                        <div class="portfolio-overlay py-3 py-sm-4 px-4">
+                            <h4 class="text-white fw-500 pb-3 project-title">PROCUREMENT EXPRESS</h4>
+                            <p class="project-technology text-white mt-2 mt-sm-4 mb-0">Web Development</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container px-3 mb-4 mb-sm-5 col-lg-4 col-md-4 col-sm-6 col-xs-12" data-categories="all,web-design,full-stack-development">
+                    <div class="gallery-product p-2 p-sm-4 position-relative">
+                        <img alt="" class="img-responsive w-100 project-img" src="assets/img/portfolio-2.png" />
+                        <div class="portfolio-overlay py-3 py-sm-4 px-4">
+                            <h4 class="text-white fw-500 pb-3 project-title">BESTCLASS</h4>
+                            <p class="project-technology text-white mt-2 mt-sm-4 mb-0">Web Design, Full Stack Development</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container px-3 mb-4 mb-sm-5 col-lg-4 col-md-4 col-sm-6 col-xs-12" data-categories="all,full-stack-development">
+                    <div class="gallery-product p-2 p-sm-4 position-relative">
+                        <img alt="" class="img-responsive w-100 project-img" src="assets/img/portfolio-3.png" />
+                        <div class="portfolio-overlay py-3 py-sm-4 px-4">
+                            <h4 class="text-white fw-500 pb-3 project-title">ATMAGO</h4>
+                            <p class="project-technology text-white mt-2 mt-sm-4 mb-0">Full Stack Development</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container px-3 mb-4 mb-sm-5 col-lg-4 col-md-4 col-sm-6 col-xs-12" data-categories="all,full-stack-development">
+                <div class="gallery-product p-2 p-sm-4 position-relative">
+                    <img alt="" class="img-responsive w-100 project-img" src="assets/img/portfolio-4.png" />
+                    <div class="portfolio-overlay py-3 py-sm-4 px-4">
+                        <h4 class="text-white fw-500 pb-3 project-title">BLOOMRX</h4>
+                        <p class="project-technology text-white mt-2 mt-sm-4 mb-0">Full Stack Development</p>
+                    </div>
+                </div>
+                </div>
+                <div class="image-container px-3 mb-4 mb-sm-5 col-lg-4 col-md-4 col-sm-6 col-xs-12" data-categories="all,full-stack-development">
+                    <div class="gallery-product p-2 p-sm-4 position-relative">
+                        <img alt="" class="img-responsive w-100 project-img" src="assets/img/portfolio-5.png" />
+                        <div class="portfolio-overlay py-3 py-sm-4 px-4">
+                            <h4 class="text-white fw-500 pb-3 project-title">LEVEL SENSE</h4>
+                            <p class="project-technology text-white mt-2 mt-sm-4 mb-0">Full Stack Development</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container px-3 mb-4 mb-sm-5 col-lg-4 col-md-4 col-sm-6 col-xs-12" data-categories="all,full-stack-development">
+                    <div class="gallery-product p-2 p-sm-4 position-relative">
+                        <img alt="" class="img-responsive w-100 project-img" src="assets/img/portfolio-6.png" />
+                        <div class="portfolio-overlay py-3 py-sm-4 px-4">
+                            <h4 class="text-white fw-500 pb-3 project-title">UGMO</h4>
+                            <p class="project-technology text-white mt-2 mt-sm-4 mb-0">Full Stack Development</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container px-3 mb-4 mb-sm-5 col-lg-4 col-md-4 col-sm-6 col-xs-12" data-categories="all,web-development">
+                    <div class="gallery-product p-2 p-sm-4 position-relative">
+                        <img alt="" class="img-responsive w-100 project-img" src="assets/img/portfolio-7.png" />
+                        <div class="portfolio-overlay py-3 py-sm-4 px-4">
+                            <h4 class="text-white fw-500 pb-3 project-title">FROALA</h4>
+                            <p class="project-technology text-white mt-2 mt-sm-4 mb-0">Web Development</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container px-3 mb-4 mb-sm-5 col-lg-4 col-md-4 col-sm-6 col-xs-12" data-categories="all,full-stack-development">
+                    <div class="gallery-product p-2 p-sm-4 position-relative">
+                        <img alt="" class="img-responsive w-100 project-img" src="assets/img/portfolio-8.png" />
+                        <div class="portfolio-overlay py-3 py-sm-4 px-4">
+                            <h4 class="text-white fw-500 pb-3 project-title">Gainx</h4>
+                            <p class="project-technology text-white mt-2 mt-sm-4 mb-0">Full Stack Development</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container px-3 mb-4 mb-sm-5 col-lg-4 col-md-4 col-sm-6 col-xs-12" data-categories="all,web-development">
+                    <div class="gallery-product p-2 p-sm-4 position-relative">
+                        <img alt="" class="img-responsive w-100 project-img" src="assets/img/portfolio-9.png" />
+                        <div class="portfolio-overlay py-3 py-sm-4 px-4">
+                            <h4 class="text-white fw-500 pb-3 project-title">HOLIDALE</h4>
+                            <p class="project-technology text-white mt-2 mt-sm-4 mb-0">Web Development</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Portfolio Section End -->
+ 
+<!-- Testimonial Section Start -->
+<section class="ct-testimonial-section position-relative pt-4 pb-5">
+    <img alt="Polygon" class="testimonial-polygon" src="assets/img/testimonial-polygon.svg" />
+<div class="container">
+    <div class="col-lg-8 ms-auto ps-lg-5">
+        <h2 class="section-heading mb-2 mb-md-4"><span class="text-gradient">What Clients Say About Us</span></h2>
+        <p class="section-subtitle">Strategies for Ensuring Retained Clients Stay Content</p>
+    </div>
+    <div class="swiper-testimonial testimonial-slider">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="row justify-content-center align-items-center px-5 px-lg-0">
+                <div class="d-flex justify-content-center justify-content-lg-start col-md-12 col-lg-3 mb-3 mb-lg-0" data-aos="fade-right">
+                    <div class="client-img-wrap position-relative">
+                        <img alt="Client Image" class="client-img" src="assets/img/client-img-1.png" />
+                        <img alt="Client Image" class="client-img" src="assets/img/quote.svg" />
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6 p-0">
+                    <article>
+                        <p class="testimonial-text color-text-light text-center text-lg-start">Over the past four years, I have engaged in multiple projects with Sked Group, and I am thoroughly delighted with their contributions. They consistently address any queries that arise promptly, embodying a team that adeptly transforms my ideas into reality. I couldn't envision a more capable and responsive team to collaborate with.</p>
+                        <h4 class="client-name mt-3 text-center text-lg-start fw-700 color-secondary">Alex Billy</h4>
+                    </article>
+                </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="row justify-content-center align-items-center px-5 px-lg-0">
+                <div class="d-flex justify-content-center justify-content-lg-start col-md-12 col-lg-3 mb-3 mb-lg-0" data-aos="fade-right">
+                    <div class="client-img-wrap position-relative">
+                        <img alt="Client Image" class="client-img" src="assets/img/client-img-1.png" />
+                        <img alt="Quote Image" class="quote-img" src="assets/img/quote.svg" />
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6 p-0" data-aos="fade-left" data-aos-duration="900">
+                    <article>
+                        <p class="testimonial-text color-text-light text-center text-lg-start">I have consistently found Sked Group to be a dependable collaborator in my website development endeavors. Their responsiveness to my requests has been impressive, and their technical proficiency has remained consistently impressive over the course of our partnership.</p>
+                        <h4 class="client-name mt-3 text-center text-lg-start fw-700 color-secondary">Brett Black</h4>
+                    </article>
+                </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="row justify-content-center align-items-center px-5 px-lg-0">
+                <div class="d-flex justify-content-center justify-content-lg-start col-md-12 col-lg-3 mb-3 mb-lg-0" >
+                    <div class="client-img-wrap position-relative">
+                        <img alt="Client Image" class="client-img" src="assets/img/client-img-1.png" />
+                        <img alt="Quote Image" class="quote-img" src="assets/img/quote.svg" />
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6 p-0">
+                    <article>
+                        <p class="testimonial-text color-text-light text-center text-lg-start">Working with the Sked Group Team was a delightful experience. They exhibited responsiveness, clear communication, and a genuine willingness to engage with all facets of the project. Their diligent efforts and evident sense of pride in their work were truly commendable.</p>
+                        <h4 class="client-name mt-3 text-center text-lg-start fw-700 color-secondary">Kevin Davis</h4>
+                    </article>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-button-next fw-700 color-secondary"></div>
+        <div class="swiper-button-prev fw-700 color-secondary"></div>
+      </div>
+</div>
+</section>
+<!-- Testimonial Section End -->
+ 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"
+        integrity="sha512-Ysw1DcK1P+uYLqprEAzNQJP+J4hTx4t/3X2nbVwszao8wD+9afLjBQYjz7Uk4ADP+Er++mJoScI42ueGtQOzEA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- custom script -->
+    <script>
+        var swiper = new Swiper(".swiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            spaceBetween: 30,
+            centeredSlides: false,
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 0,
+                modifier: 1,
+                slideShadows: false
+            },
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            },
+            keyboard: {
+                enabled: true
+            },
+            mousewheel: {
+                thresholdDelta: 70
+            },
+            breakpoints: {
+                460: {
+                    slidesPerView: 3
+                },
+                768: {
+                    slidesPerView: 3
+                },
+                1024: {
+                    slidesPerView: 3
+                },
+                1600: {
+                    slidesPerView: 3.6
+                }
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+    const filterLinks = document.querySelectorAll(".filter-link");
+    const imageContainers = document.querySelectorAll(".image-container");
+    
+    filterLinks.forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+            
+            // Remove 'active' class from all filter links
+            filterLinks.forEach(link => link.classList.remove("active"));
+            
+            // Add 'active' class to clicked link
+            this.classList.add("active");
+            
+            const category = this.getAttribute("data-category");
+            
+            imageContainers.forEach(container => {
+                const categories = container.getAttribute("data-categories").split(",");
+                
+                if (categories.includes(category) || category === "all") {
+                    container.style.display = "block";
+                } else {
+                    container.style.display = "none";
+                }
+            });
+        });
+    });
+});
+
+// Testimonial Swiper
+new Swiper(".swiper-testimonial", {
+        loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        slidesPerView: 1,
+        spaceBetween: 20,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        keyboard: {
+            enabled: true,
+            onlyInViewport: true,
+        },
+    });
+
+
+</script>
+
+</body>
+
+</html>
